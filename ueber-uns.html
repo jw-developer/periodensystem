@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="deCH">
+<head>
+    <meta charset="UTF-8"> <!-- Zeichensetzung -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/ueber-uns.css"> <!-- CSS Main für diese Seite -->
+    <link rel="stylesheet" href="css/style.css"> <!-- CSS für Iconschriftart -->
+    <link rel="stylesheet" href="css/light_mode.css" id="mode_css"> <!-- CSS für Lightmode/Darkmode -->
+    <script src="script.js"></script> <!-- JavaScript Funktionen -->    
+    <script src="https://kit.fontawesome.com/591a0df862.js" crossorigin="anonymous"></script> <!-- Font Awesome Kit -->    
+    <title>Über uns</title>
+
+    <link rel="shortcut icon" href="grafiken/favicon.png" type="image/x-icon"> <!-- Favicon -->
+</head>
+<body>
+    <!-- Titel -->
+    <div class="title">
+        <a href="/"><img src="grafiken/logo.svg" alt="PSE Logo" class="logo" id="img-logo"></a>
+        <h1 class="main-title" id="h1-title">Über uns</h1>
+        <hr>
+      </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-box"> <!-- Periodensystem (Link zu index.html) -->
+            <a href="/"><span class="pse-icon pse_icon-logo_simple_white" onmouseover="change_icon_color(this)"></span> <span class="footer-label">Periodensystem</span></a>
+        </div>
+        <div class="footer-box"> <!-- Über-uns (Link zu ueber-uns.html) -->
+            <a href="ueber-uns.html"><i class="fas fa-id-badge"></i> <span class="footer-label">Über uns</span></a>
+        </div>
+        <div class="footer-box"> <!-- Downloads (Link zu downloads.html) -->
+            <a href="downloads.html"><i class="fas fa-download"></i> <span class="footer-label">Downloads</span></a>
+        </div>
+        <div class="footer-box"> <!-- Einstellungen -->
+            <div class="dropdown">
+                <div class="dropdown-content">
+                    <span class="label">Darkmode</span>
+                    <label class="switch" onclick="set_mode()">
+                        <input type="checkbox" id="check">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <i class="fas fa-cog"></i> <span class="footer-label">Einstellungen</span>
+            </div>
+        </div>
+        <div class="footer-box"> <!-- Legende (der verschiedenen Kategorien) -->
+            <div class="dropdown">
+                <div class="dropdown-content">
+                    <div class="legend red">
+                        Nichtmetall
+                    </div>
+                    <div class="legend brown">
+                        Alkalimetall
+                    </div>
+                    <div class="legend wheat">
+                        Erdalkalimetall
+                    </div>
+                    <div class="legend green">
+                        Übergangsmetall
+                    </div>
+                    <div class="legend orange">
+                        Halbmetall
+                    </div>
+                    <div class="legend grey">
+                        Metall
+                    </div>
+                    <div class="legend yellowgreen">
+                        Halogen
+                    </div>
+                    <div class="legend pink">
+                        Edelgas
+                    </div>
+                    <div class="legend lightblue">
+                        Lanthanoid
+                    </div>
+                    <div class="legend violett">
+                        Actionid
+                    </div>
+                </div>
+                <i class="fas fa-lightbulb"></i> <span class="footer-label">Legende</span>
+            </div>
+        </div>
+        <div class="footer-box"> <!-- Quellen (der Elementdaten) -->
+            <div class="dropdown">
+                <div class="dropdown-content" id="quellen">
+                        <div class="quellen">
+                            <a target="blank" href="http://www.paul-gabriel-mueller.de/blog/2009/02/03/periodiccsv/">- periodic.csv</a>
+                        </div>
+                        <div class="quellen">
+                            <a target="blank" href="https://www.internetchemie.info/chemische-elemente/elektronegativitaet.php">- Elektronegativitäten</a>
+                        </div>
+                        <div class="quellen">
+                            <a target="blank" href="https://www.internetchemie.info/chemische-elemente/elektronenkonfigurationen.php">- Elektronenkonfiguration</a>
+                        </div>
+                        <div class="quellen">
+                            <a target="blank" href="https://de.wikipedia.org/wiki/Liste_der_chemischen_Elemente#Liste">- Wikipedia</a>
+                        </div>
+                        <div class="quellen">
+                            <a target="blank" href="https://sourceforge.net/projects/bohrmodelgenera/">- Bohr Model Generator</a>
+                        </div>
+                </div>
+                <i class="fas fa-globe"></i> <span class="footer-label">Quellen</span>
+            </div>
+        </div>
+        <div class="footer-box"> <!-- Kontakt E-Mail Adresse -->
+            <div class="dropdown">
+                <div class="dropdown-content" style="position: absolute; right: 10px;" id="kontakt">
+                    <a href="mailto:info@periodensystem.app">info@periodensystem.app</a>
+                </div>
+                <i class="fas fa-envelope"></i> <span class="footer-label">Kontakt</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Flex-Wrapper Führung -->
+    <div class="wrapper-ueber-uns">
+        <div class="box-person">
+            <img src="grafiken/avatar/janis_wiederkehr.svg" alt="Test Bild" width="80%">
+            <div class="personen-beschreibung">
+                <span class="name">Janis Wiederkehr</span> <br> <span class="position">- Webdesigner <br> - Programmierer</span>
+            </div>
+        </div>
+        <div class="box-person">
+            <img src="grafiken/avatar/nils_eichmueller.svg" alt="Test Bild" width="80%">
+            <div class="personen-beschreibung">
+                <span class="name">Nils Eichmüller</span> <br> <span class="position">- Data Manager <br> - Programmierer</span>
+            </div> 
+        </div>
+    </div>
+    <br> <br>
+    <div class="wrapper-2">
+        <div class="box-ueber-uns box-a">
+            <h2>Über uns</h2>
+            <p class="about-us">
+                Mit einem grossen Interesse an den Bereichen Informatik und Chemie haben wir unser 
+                bislang grösstes Projekt im Bereich Chemie in Form einer Website realisiert. Fortlaufend 
+                haben wir weitere Ideen, die immer komplizierter und schwieriger zu realisieren werden. 
+                Dadurch treffen wir immer wieder auf neue Herausforderungen. Durch die grosse Motivation des Teams 
+                werden diese Hürden immer gemeistert. Unser Team besteht aus Janis Wiederkehr 
+                (Programmierer) und Nils Eichmüller (Data Manager). Wir verbessern unser 
+                Methoden und Produkte laufend, um ein optimales Erlebnis zu ermöglichen.  
+            </p>
+        </div>
+        <div class="box-ueber-uns box-b">
+            <h2>Privatsphäre</h2>
+            <p class="privacy">
+                Unser Periodensystem unterscheidet sich in vielen Bereichen zu 
+                anderen Alternativen. Unser Quellcode ist öffentlich einsehbar: 
+                <a target="blank" href="https://github.com/jw-developer/periodensystem">Github</a>. Ausserdem speichert die Webseite keinerlei Daten 
+                über den Benutzer. Es werden weder Cookies gesammelt, noch kann sicher 
+                der Benutzer anmelden, damit Daten gesammelt werden können. Einzig und 
+                allein wird die Einstellung des Darkmodes gespeichert. Und dies auch 
+                nur auf einer temporären Datei in dem Browserspeicherort Ihres Rechners. 
+                So können wir auch nicht einsehen, ob der Darkmode bei Benutzern ein- 
+                oder ausgeschalten wurde.
+            </p>
+        </div>
+    </div>
+    <div class="timeline"> 
+        <div class="timeline__event  animated fadeInUp delay-3s timeline__event--type1">
+          <div class="timeline__event__icon ">
+            <i class="fas fa-lightbulb"></i>
+      
+          </div>
+          <div class="timeline__event__date">
+            29. Okt 2021
+          </div>
+          <div class="timeline__event__content ">
+            <div class="timeline__event__title">
+              Die Idee
+            </div>
+            <div class="timeline__event__description">
+              <p>An diesem Tag hatten wir die wunderbare Idee für unser Projekt: ein Periodensystem.</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline__event animated fadeInUp delay-2s timeline__event--type2">
+          <div class="timeline__event__icon">
+            <i class="fas fa-cogs"></i>
+      
+          </div>
+          <div class="timeline__event__date">
+            3. Nov 2021
+          </div>
+          <div class="timeline__event__content">
+            <div class="timeline__event__title">
+              Erster Prototyp
+            </div>
+            <div class="timeline__event__description">
+              <p>Einige Tage später setzten wir uns hin und fingen an mit einer einfachen Form des Periodensystems (10 Elemente) einen ersten Prototypen zu erstellen.</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline__event animated fadeInUp delay-1s timeline__event--type3">
+          <div class="timeline__event__icon">
+            <i class="fas fa-book"></i>
+      
+          </div>
+          <div class="timeline__event__date">
+            5. Nov 2021
+          </div>
+          <div class="timeline__event__content">
+            <div class="timeline__event__title">
+              Daten recherche
+            </div>
+            <div class="timeline__event__description">
+              <p>Nun brauchten wir etliche Daten für jedes Element. Wir suchten in verschiedenen Quellen und kopierten die Daten zusammen.</p>
+            </div>
+      
+          </div>
+        </div>
+        <div class="timeline__event animated fadeInUp timeline__event--type4">
+          <div class="timeline__event__icon">
+            <i class="fas fa-database"></i>
+      
+          </div>
+          <div class="timeline__event__date">
+            12. Nov 2021
+          </div>
+          <div class="timeline__event__content">
+            <div class="timeline__event__title">
+              Erstellen der Datenbank
+            </div>
+            <div class="timeline__event__description">
+              <p>Um mit den Daten später in die Webseite zu implementieren, brauchten wir eine Datenbank.</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline__event animated fadeInUp timeline__event--type5">
+          <div class="timeline__event__icon">
+            <i class="fas fa-paint-brush"></i>
+      
+          </div>
+          <div class="timeline__event__date">
+            12. Nov 2021
+          </div>
+          <div class="timeline__event__content">
+            <div class="timeline__event__title">
+              Erstellen des Logos
+            </div>
+            <div class="timeline__event__description">
+              <p>Da unsere Webseite nun schon eine gute Form angenommen hatte, designten wir unsere heutiges Logo.</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline__event animated fadeInUp timeline__event--type6">
+          <div class="timeline__event__icon">
+            <i class="fab fa-js-square"></i>
+      
+          </div>
+          <div class="timeline__event__date">
+            14. Nov 2021
+          </div>
+          <div class="timeline__event__content">
+            <div class="timeline__event__title">
+              Erste Funktionierende Version (Version 1.0)
+            </div>
+            <div class="timeline__event__description">
+              <p>Nachdem wir alle Daten in die WebApp übertragt haben, programmierten wir den ersten Teil in JavaScript, sodass man die Elemente anklicken kann.</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline__event animated fadeInUp timeline__event--type7">
+          <div class="timeline__event__icon">
+            <i class="fas fa-id-badge"></i>
+      
+          </div>
+          <div class="timeline__event__date">
+            16. Nov 2021
+          </div>
+          <div class="timeline__event__content">
+            <div class="timeline__event__title">
+              Beginn der Seite "Über uns"
+            </div>
+            <div class="timeline__event__description">
+              <p>Da eine einzige Seite uns sehr wenig erschien, entschieden wir uns dazu eine weitere Seite zu erstellen: Über uns.</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline__event animated fadeInUp timeline__event--type8">
+          <div class="timeline__event__icon">
+            <i class="fas fa-moon"></i>
+      
+          </div>
+          <div class="timeline__event__date">
+            17. Nov 2021
+          </div>
+          <div class="timeline__event__content">
+            <div class="timeline__event__title">
+              Erstellen des Darkmodes (Version 1.1)
+            </div>
+            <div class="timeline__event__description">
+              <p>Weil wir noch weitere Features hinzufügen mochten, hatten wir die Idee eines Darkmodes.</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline__event animated fadeInUp timeline__event--type9">
+          <div class="timeline__event__icon">
+            <i class="fas fa-pencil-ruler"></i>
+      
+          </div>
+          <div class="timeline__event__date">
+            17. Nov 2021
+          </div>
+          <div class="timeline__event__content">
+            <div class="timeline__event__title">
+              Hinzufügen einer Animation beim Anclicken der Elemente
+            </div>
+            <div class="timeline__event__description">
+              <p>Bis jetzt erschienen die Kästchen mit mehr Informationen für die Elemente immer sofort. Damit es einen weicheren Übergang gibt, fügten wir eine kleine Animation hinzu.</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline__event animated fadeInUp timeline__event--type10">
+          <div class="timeline__event__icon">
+            <i class="fas fa-icons"></i>
+      
+          </div>
+          <div class="timeline__event__date">
+            19. Nov 2021
+          </div>
+          <div class="timeline__event__content">
+            <div class="timeline__event__title">
+              Eigene Schriftart für Icons erstellt
+            </div>
+            <div class="timeline__event__description">
+              <p>Da wir zusätzlich zu den Icons von Font Awesome noch eigene Icons brauchten, erstellten wir unsere eigene Iconschriftart mit <a href="https://icomoon.io/">Icomoon</a>.</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline__event animated fadeInUp timeline__event--type11">
+          <div class="timeline__event__icon">
+            <i class="fas fa-bars"></i>
+      
+          </div>
+          <div class="timeline__event__date">
+            20. Nov 2021
+          </div>
+          <div class="timeline__event__content">
+            <div class="timeline__event__title">
+              Footer mit Navigationsleiste hinzugefügt (Version 1.2)
+            </div>
+            <div class="timeline__event__description">
+              <p>Anstatt die Navigationsleiste oben zu machen, platzierten wir sie nach unten. Sie beinhaltet nicht nur Links sondern auch Dropdown Menus.</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline__event animated fadeInUp timeline__event--type12">
+          <div class="timeline__event__icon">
+            <i class="fas fa-mobile"></i>
+      
+          </div>
+          <div class="timeline__event__date">
+            21. Nov 2021
+          </div>
+          <div class="timeline__event__content">
+            <div class="timeline__event__title">
+              Webseite für Mobilgeräte angepasst
+            </div>
+            <div class="timeline__event__description">
+              <p>Damit die Webseite nicht nur auf dem PC gut aussieht, mussten wir sie noch für Mobilgeräte optimieren.</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline__event animated fadeInUp timeline__event--type13">
+          <div class="timeline__event__icon">
+            <i class="fas fa-download"></i>
+      
+          </div>
+          <div class="timeline__event__date">
+            22. Nov 2021
+          </div>
+          <div class="timeline__event__content">
+            <div class="timeline__event__title">
+              Beginn der Seite "Downloads"
+            </div>
+            <div class="timeline__event__description">
+              <p>Neben der Periodensystem- und der Über uns-Seite wollten wir eine Downloadsseite erstelle, um verschiedenste Dateien und Bilder anzubieten.</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline__event animated fadeInUp timeline__event--type14">
+          <div class="timeline__event__icon">
+            <i class="fas fa-table"></i>
+      
+          </div>
+          <div class="timeline__event__date">
+            24. Nov 2021
+          </div>
+          <div class="timeline__event__content">
+            <div class="timeline__event__title">
+              erstellen einer Daten Tabelle
+            </div>
+            <div class="timeline__event__description">
+              <p>Da wir von unseren Quellen nur Tabellen gefunden haben, welche wir kopieren mussten, haben auch wir eine HTML Tabelle erstellt.</p>
+            </div>
+          </div>
+        </div>
+        <div class="timeline__event animated fadeInUp timeline__event--type15">
+          <div class="timeline__event__icon">
+            <i class="fas fa-check-square"></i>
+      
+          </div>
+          <div class="timeline__event__date">
+            29. Nov 2021
+          </div>
+          <div class="timeline__event__content">
+            <div class="timeline__event__title">
+              Fertigstellung der Webseite (Version 2.0)
+            </div>
+            <div class="timeline__event__description">
+              <p>Nach  einigen kleinen Verbesserungen wurde die WebApp endlich fertiggestellt.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <br> <br>
+    <script>
+        // Darkmode oder Lightmode aus dem LocalStorage holen und in der Variablen mode abspeichern
+        var mode = window.localStorage.getItem("mode");
+    
+        // Prüfen, ob der Lightmode oder der Darkmode ausgewählt wurde und Style dementsprechend anpassen
+        if (mode == "dark_mode") {
+            // neuer Link zu css/darkmode.css im <head> erstellen
+            var mode_css = document.getElementById("mode_css");
+            mode_css.href = "css/dark_mode.css";
+            
+            // Logo im Titel ändern und Darkmode Checkbox anclicken
+            document.getElementById("img-logo").src = "grafiken/logo_darkmode.svg";
+            document.getElementById("check").checked = true;
+        }
+    </script>
+</body>
+</html>

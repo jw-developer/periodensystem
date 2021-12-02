@@ -1,0 +1,2328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Zeichensetzung -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/downloads.css"> <!-- CSS Main für diese Seite -->
+    <link rel="stylesheet" href="css/style.css"> <!-- CSS für Iconschriftart -->
+    <link rel="stylesheet" href="css/light_mode.css" id="mode_css"> <!-- CSS für Lightmode/Darkmode -->
+    <script src="script.js"></script> <!-- JavaScript Funktionen -->    
+    <script src="https://kit.fontawesome.com/591a0df862.js" crossorigin="anonymous"></script> <!-- Font Awesome Kit -->    
+    <title>Downloads</title>
+
+    <link rel="shortcut icon" href="grafiken/favicon.png" type="image/x-icon"> <!-- Favicon -->
+</head>
+<body>
+    <!-- Titel -->
+    <div class="title"> 
+        <a href="/"><img src="grafiken/logo.svg" alt="PSE Logo" class="logo" id="img-logo"></a>
+        <h1 class="main-title" id="h1-title">Downloads</h1>
+        <hr>
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-box"> <!-- Periodensystem (Link zu index.html) -->
+            <a href="/"><span class="pse-icon pse_icon-logo_simple_white" onmouseover="change_icon_color(this)"></span> <span class="footer-label">Periodensystem</span></a>
+        </div>
+        <div class="footer-box"> <!-- Über-uns (Link zu ueber-uns.html) -->
+            <a href="ueber-uns.html"><i class="fas fa-id-badge"></i> <span class="footer-label">Über uns</span></a>
+        </div>
+        <div class="footer-box"> <!-- Downloads (Link zu downloads.html) -->
+            <a href="downloads.html"><i class="fas fa-download"></i> <span class="footer-label">Downloads</span></a>
+        </div>
+        <div class="footer-box"> <!-- Einstellungen -->
+            <div class="dropdown">
+                <div class="dropdown-content">
+                    <span class="label">Darkmode</span>
+                    <label class="switch" onclick="set_mode()">
+                        <input type="checkbox" id="check">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <i class="fas fa-cog"></i> <span class="footer-label">Einstellungen</span>
+            </div>
+        </div>
+        <div class="footer-box"> <!-- Legende (der verschiedenen Kategorien) -->
+            <div class="dropdown">
+                <div class="dropdown-content">
+                    <div class="legend red">
+                        Nichtmetall
+                    </div>
+                    <div class="legend brown">
+                        Alkalimetall
+                    </div>
+                    <div class="legend wheat">
+                        Erdalkalimetall
+                    </div>
+                    <div class="legend green">
+                        Übergangsmetall
+                    </div>
+                    <div class="legend orange">
+                        Halbmetall
+                    </div>
+                    <div class="legend grey">
+                        Metall
+                    </div>
+                    <div class="legend yellowgreen">
+                        Halogen
+                    </div>
+                    <div class="legend pink">
+                        Edelgas
+                    </div>
+                    <div class="legend lightblue">
+                        Lanthanoid
+                    </div>
+                    <div class="legend violett">
+                        Actionid
+                    </div>
+                </div>
+                <i class="fas fa-lightbulb"></i> <span class="footer-label">Legende</span>
+            </div>
+        </div>
+        <div class="footer-box"> <!-- Quellen (der Elementdaten) -->
+            <div class="dropdown">
+                <div class="dropdown-content" id="quellen">
+                        <div class="quellen">
+                            <a target="blank" href="http://www.paul-gabriel-mueller.de/blog/2009/02/03/periodiccsv/">- periodic.csv</a>
+                        </div>
+                        <div class="quellen">
+                            <a target="blank" href="https://www.internetchemie.info/chemische-elemente/elektronegativitaet.php">- Elektronegativitäten</a>
+                        </div>
+                        <div class="quellen">
+                            <a target="blank" href="https://www.internetchemie.info/chemische-elemente/elektronenkonfigurationen.php">- Elektronenkonfiguration</a>
+                        </div>
+                        <div class="quellen">
+                            <a target="blank" href="https://de.wikipedia.org/wiki/Liste_der_chemischen_Elemente#Liste">- Wikipedia</a>
+                        </div>
+                        <div class="quellen">
+                            <a target="blank" href="https://sourceforge.net/projects/bohrmodelgenera/">- Bohr Model Generator</a>
+                        </div>
+                </div>
+                <i class="fas fa-globe"></i> <span class="footer-label">Quellen</span>
+            </div>
+        </div>
+        <div class="footer-box"> <!-- Kontakt E-Mail Adresse -->
+            <div class="dropdown">
+                <div class="dropdown-content" style="position: absolute; right: 10px;" id="kontakt">
+                    <a href="mailto:info@periodensystem.app">info@periodensystem.app</a>
+                </div>
+                <i class="fas fa-envelope"></i> <span class="footer-label">Kontakt</span>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="box-downloads text">
+            <div>Auf dieser Seite sind alle Atom Bilder des Schalenmodells von Bohr zum Download verfügbar.  Da unser Team sehr froh gewesen wäre, wenn sie alle Daten aus einer einzigen Quelle beziehen hätten können. Neben drei verschiedenen Dateiformaten gibt es eine ausführliche Tabelle mit allen Daten.</div>
+            <!-- <a href="https://github.com/jw-developer/periodensystem" class="link-github">Github</a> -->
+        </div>
+        <div class="box-downloads download_img">
+            <h2>Bilder</h2>
+            <select name="atom-icon_dropdown" id="atom-icon_dropdown">
+                <option value="" id="default-dropdown ">-- bitte Element auswählen --</option>
+                <option value="Hydrogen" id="H-dropdown ">H, Wasserstoff</option>
+                <option value="Helium" id="He-dropdown ">He, Helium</option>
+                <option value="Lithium" id="Li-dropdown ">Li, Lithium</option>
+                <option value="Beryllium" id="Be-dropdown ">Be, Beryllium</option>
+                <option value="Boron" id="B-dropdown ">B, Bor</option>
+                <option value="Californium" id="C-dropdown ">C, Kohlenstoff</option>
+                <option value="Nitrogen" id="N-dropdown ">N, Stickstoff</option>
+                <option value="Oxygen" id="O-dropdown ">O, Sauerstoff</option>
+                <option value="Flourine" id="F-dropdown ">F, Fluor</option>
+                <option value="Neon" id="Ne-dropdown ">Ne, Neon</option>
+                <option value="Sodium" id="Na-dropdown ">Na, Natrium</option>
+                <option value="Magnesium" id="Mg-dropdown ">Mg, Magnesium</option>
+                <option value="Aluminium" id="Al-dropdown ">Al, Aluminium</option>
+                <option value="Silicon" id="Si-dropdown ">Si, Silizium</option>
+                <option value="Phosphorus" id="P-dropdown ">P, Phosphor</option>
+                <option value="Sulfur" id="S-dropdown ">S, Schwefel</option>
+                <option value="Chlorine" id="Cl-dropdown ">Cl, Chlor</option>
+                <option value="Argon" id="Ar-dropdown ">Ar, Argon</option>
+                <option value="Potassium" id="K-dropdown ">K, Kalium</option>
+                <option value="Caesium" id="Ca-dropdown ">Ca, Kalzium</option>
+                <option value="Scandium" id="Sc-dropdown ">Sc, Scandium</option>
+                <option value="Titanium" id="Ti-dropdown ">Ti, Titan</option>
+                <option value="Vanadium" id="V-dropdown ">V, Vanadium</option>
+                <option value="Chromium" id="Cr-dropdown ">Cr, Chrom</option>
+                <option value="Manganese" id="Mn-dropdown ">Mn, Mangan</option>
+                <option value="Iron" id="Fe-dropdown ">Fe, Eisen</option>
+                <option value="Cobalt" id="Co-dropdown ">Co, Kobalt</option>
+                <option value="Nickel" id="Ni-dropdown ">Ni, Nickel</option>
+                <option value="Copper" id="Cu-dropdown ">Cu, Kupfer</option>
+                <option value="Zinc" id="Zn-dropdown ">Zn, Zink</option>
+                <option value="Gallium" id="Ga-dropdown ">Ga, Gallium</option>
+                <option value="Germanium" id="Ge-dropdown ">Ge, Germanium</option>
+                <option value="Arsenic" id="As-dropdown ">As, Arsen</option>
+                <option value="Selenium" id="Se-dropdown ">Se, Selen</option>
+                <option value="Bromine" id="Br-dropdown ">Br, Brom</option>
+                <option value="Krypton" id="Kr-dropdown ">Kr, Krypton</option>
+                <option value="Rubidium" id="Rb-dropdown ">Rb, Rubidium</option>
+                <option value="Strontium" id="Sr-dropdown ">Sr, Strontium</option>
+                <option value="Yttrium" id="Y-dropdown ">Y, Yttrium</option>
+                <option value="Zirconium" id="Zr-dropdown ">Zr, Zirkonium</option>
+                <option value="Niobium" id="Nb-dropdown ">Nb, Niob</option>
+                <option value="Molybdenum" id="Mo-dropdown ">Mo, Molybdän</option>
+                <option value="Technetium" id="Tc-dropdown ">Tc, Technetium</option>
+                <option value="Ruthenium" id="Ru-dropdown ">Ru, Ruthenium</option>
+                <option value="Rhodium" id="Rh-dropdown ">Rh, Rhodium</option>
+                <option value="Palladium" id="Pd-dropdown ">Pd, Palladium</option>
+                <option value="Silver" id="Ag-dropdown ">Ag, Silber</option>
+                <option value="Cadmium" id="Cd-dropdown ">Cd, Cadmium</option>
+                <option value="Indium" id="In-dropdown ">In, Indium</option>
+                <option value="Tin" id="Sn-dropdown ">Sn, Glauben</option>
+                <option value="Antimony" id="Sb-dropdown ">Sb, Antimon</option>
+                <option value="Tellurium" id="Te-dropdown ">Te, Tellur</option>
+                <option value="Iodine" id="I-dropdown ">I, Jod</option>
+                <option value="Xenon" id="Xe-dropdown ">Xe, Xenon</option>
+                <option value="Cerium" id="Cs-dropdown ">Cs, Cäsium</option>
+                <option value="Barium" id="Ba-dropdown ">Ba, Barium</option>
+                <option value="Lanthanum" id="La-dropdown ">La, Lanthan</option>
+                <option value="Carbon" id="Ce-dropdown ">Ce, Cer</option>
+                <option value="Praseodymium" id="Pr-dropdown ">Pr, Praseodym</option>
+                <option value="Neodymium" id="Nd-dropdown ">Nd, Neodym</option>
+                <option value="Promethium" id="Pm-dropdown ">Pm, Promethium</option>
+                <option value="Samarium" id="Sm-dropdown ">Sm, Samarium</option>
+                <option value="Europium" id="Eu-dropdown ">Eu, Europium</option>
+                <option value="Gadolinium" id="Gd-dropdown ">Gd, Gadolinium</option>
+                <option value="Terbium" id="Tb-dropdown ">Tb, Terbium</option>
+                <option value="Dysprosium" id="Dy-dropdown ">Dy, Dysprosium</option>
+                <option value="Holmium" id="Ho-dropdown ">Ho, Holmium</option>
+                <option value="Erbium" id="Er-dropdown ">Er, Erbium</option>
+                <option value="Thulium" id="Tm-dropdown ">Tm, Thulium</option>
+                <option value="Ytterbium" id="Yb-dropdown ">Yb, Ytterbium</option>
+                <option value="Lutetium" id="Lu-dropdown ">Lu, Lutetium</option>
+                <option value="Hafnium" id="Hf-dropdown ">Hf, Hafnium</option>
+                <option value="Tantalum" id="Ta-dropdown ">Ta, Tantal</option>
+                <option value="Tungsten" id="W-dropdown ">W, Wolfram</option>
+                <option value="Rhenium" id="Re-dropdown ">Re, Rhenium</option>
+                <option value="Osmium" id="Os-dropdown ">Os, Osmium</option>
+                <option value="Iridium" id="Ir-dropdown ">Ir, Iridium</option>
+                <option value="Platinum" id="Pt-dropdown ">Pt, Platin</option>
+                <option value="Gold" id="Au-dropdown ">Au, Gold</option>
+                <option value="Mercury" id="Hg-dropdown ">Hg, Quecksilber</option>
+                <option value="Thallium" id="Tl-dropdown ">Tl, Thallium</option>
+                <option value="Lead" id="Pb-dropdown ">Pb, Blei</option>
+                <option value="Bismuth" id="Bi-dropdown ">Bi, Wismut</option>
+                <option value="Polonium" id="Po-dropdown ">Po, Polonium</option>
+                <option value="Astatine" id="At-dropdown ">At, Astat</option>
+                <option value="Radon" id="Rn-dropdown ">Rn, Radon</option>
+                <option value="Francium" id="Fr-dropdown ">Fr, Francium</option>
+                <option value="Radium" id="Ra-dropdown ">Ra, Radium</option>
+                <option value="Actinium" id="Ac-dropdown ">Ac, Actinium</option>
+                <option value="Thorium" id="Th-dropdown ">Th, Thorium</option>
+                <option value="Protactinium" id="Pa-dropdown ">Pa, Protactinium</option>
+                <option value="Uranium" id="U-dropdown ">U, Uran</option>
+                <option value="Neptunium" id="Np-dropdown ">Np, Neptunium</option>
+                <option value="Plutonium" id="Pu-dropdown ">Pu, Plutonium</option>
+                <option value="Americium" id="Am-dropdown ">Am, Americium</option>
+                <option value="Curium" id="Cm-dropdown ">Cm, Curium</option>
+                <option value="Berkelium" id="Bk-dropdown ">Bk, Berkelium</option>
+                <option value="Calcium" id="Cf-dropdown ">Cf, Californium</option>
+                <option value="Einsteinium" id="Es-dropdown ">Es, Einsteinium</option>
+                <option value="Fermium" id="Fm-dropdown ">Fm, Fermium</option>
+                <option value="Mendelevium" id="Md-dropdown ">Md, Mendelevium</option>
+                <option value="Nobelium" id="No-dropdown ">No, Nobelium</option>
+                <option value="Lawrencium" id="Lr-dropdown ">Lr, Lawrencium</option>
+                <option value="Rutherfordium" id="Rf-dropdown ">Rf, Rutherfordium</option>
+                <option value="Dubnium" id="Db-dropdown ">Db, Dubnium</option>
+                <option value="Seaborgium" id="Sg-dropdown ">Sg, Seaborgium</option>
+                <option value="Bohrium" id="Bh-dropdown ">Bh, Bohrium</option>
+                <option value="Hassium" id="Hs-dropdown ">Hs, Hassium</option>
+                <option value="Meitnerium" id="Mt-dropdown ">Mt, Meitnerium</option>
+                <option value="Darmstadtium" id="Ds-dropdown ">Ds, Darmstadtium</option>
+                <option value="Roentgenium" id="Rg-dropdown ">Rg, Röntgenium</option>
+                <option value="Copernicium" id="Cn-dropdown ">Cn, Copernicium</option>
+                <option value="Nihonium" id="Nh-dropdown ">Nh, Nihonium</option>
+                <option value="Flerovium" id="Fl-dropdown ">Fl, Flerovium</option>
+                <option value="Moscovium" id="Mc-dropdown ">Mc, Moscovium</option>
+                <option value="Livermorium" id="Lv-dropdown ">Lv, Livermorium</option>
+                <option value="Tennessine" id="Ts-dropdown ">Ts, Tennessine</option>
+                <option value="Oganesson" id="Og-dropdown ">Og, Oganesson</option>            
+            </select>
+            <a href="#" id="download_img_link" onclick="update_download()">
+                <div class="download_btn">Download</div>
+            </a> <br>
+            <a target="blank" class="bohr-source" href="https://sourceforge.net/projects/bohrmodelgenera/">Bohr Model Generator</a>
+        </div>
+    </div>
+    <hr class="hr_between_img_daten">
+    <div class="wrapper-daten">
+        <div class="box-daten-download">
+            <h2>Excel</h2>
+            <div class="dateiendung">.xlsx</div>
+            <a href="daten/pse_xlsx.zip" id="excel-download" download>
+                <div class="download_btn">Download</div>
+            </a>
+            <p>Mit dem Download einer Excel Datei hat man eine vollständige und übersichtliche Tabelle mit der man weiterrechnen oder für andere Zwecke verwenden kann.</p>
+        </div>
+        <div class="box-daten-download">
+            <h2>CSV</h2>
+            <div class="dateiendung">.csv</div>
+            <a href="daten/pse_csv.zip" id="csv-download" download>
+                <div class="download_btn">Download</div>
+            </a>
+            <p>Mit dem Download einer CSV-Datei (<strong>C</strong>omma <strong>s</strong>aperated <strong>v</strong>alues), laden Sie eine Datei runter, welche wie es der Name schon sagt, die Werte mit Kommas abtrennt.</p>
+        </div>
+        <div class="box-daten-download">
+            <h2>Text</h2>
+            <div class="dateiendung">.txt</div>
+            <a href="daten/pse_txt.zip" id="text-download" download>
+                <div class="download_btn">Download</div>
+            </a>
+            <p>
+                Eine Text Datei ist sehr klein und braucht kein spezielles Programm um geöffnet zu werden. Man benötigt nur einen Texteditor. Die Werte sind in dieser Datei mit Tabstopps getrennt.
+            </p>
+        </div>
+    </div>
+
+    <!-- PSE Daten: Tabelle -->
+    <div class="data_table">
+        <table cellspacing="0" class="sortable">
+            <colgroup span="15" width="79"></colgroup>
+            <thead>
+                <tr>
+                    <td class="pse_table_cell first_column">Ordnungszahl</b></td>
+                    <td class="pse_table_cell">Symbol</b></td>
+                    <td class="pse_table_cell">Deutscher Name</b></td>
+                    <td class="pse_table_cell">Englischer Name</b></td>
+                    <td class="pse_table_cell">Kategorie</b></td>
+                    <td class="pse_table_cell">Masse</b></td>
+                    <td class="pse_table_cell">Dichte [g/cm3]</b></td>
+                    <td class="pse_table_cell">Schmelzpunkt [K]</b></td>
+                    <td class="pse_table_cell">Siedepunkt [K]</b></td>
+                    <td class="pse_table_cell">Entdeckungsjahr</b></td>
+                    <td class="pse_table_cell">Aggregatszustand</b></td>
+                    <td class="pse_table_cell">Elektronegativit&auml;t</b></td>
+                    <td class="pse_table_cell">Elektronenkonfiguration</b></td>
+                    <td class="pse_table_cell">Bevorzugter Ladungszustand</b></td>
+                    <td class="pse_table_cell">Ladungszust&auml;nde</b></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="1" sdnum="1033;">1</td>
+                    <td class="pse_table_cell">H</td>
+                    <td class="pse_table_cell">Wasserstoff</td>
+                    <td class="pse_table_cell">Hydrogen</td>
+                    <td class="pse_table_cell">Nichtmetall</td>
+                    <td class="pse_table_cell" sdval="1,008" sdnum="1033;">1,008</td>
+                    <td class="pse_table_cell">0,00009 g/cm3</td>
+                    <td class="pse_table_cell">14,01 K</td>
+                    <td class="pse_table_cell">20,28 K</td>
+                    <td class="pse_table_cell">1766</td>
+                    <td class="pse_table_cell">Gasf&ouml;rmig</td>
+                    <td class="pse_table_cell">2,1</td>
+                    <td class="pse_table_cell">1s1</td>
+                    <td class="pse_table_cell" sdval="1" sdnum="1033;">1</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="2" sdnum="1033;">2</td>
+                    <td class="pse_table_cell">He</td>
+                    <td class="pse_table_cell">Helium</td>
+                    <td class="pse_table_cell">Helium</td>
+                    <td class="pse_table_cell">Edelgas</td>
+                    <td class="pse_table_cell" sdval="4,003" sdnum="1033;">4,003</td>
+                    <td class="pse_table_cell">0,000179 g/cm3</td>
+                    <td class="pse_table_cell">0,95 K</td>
+                    <td class="pse_table_cell">4,22 K</td>
+                    <td class="pse_table_cell">1895</td>
+                    <td class="pse_table_cell">Gasf&ouml;rmig</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">1s2</td>
+                    <td class="pse_table_cell" sdval="0" sdnum="1033;">0</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell">Li</td>
+                    <td class="pse_table_cell">Lithium</td>
+                    <td class="pse_table_cell">Lithium</td>
+                    <td class="pse_table_cell">Alkalimetall</td>
+                    <td class="pse_table_cell" sdval="6,941" sdnum="1033;">6,941</td>
+                    <td class="pse_table_cell">0,534 g/cm3</td>
+                    <td class="pse_table_cell">453,69 K</td>
+                    <td class="pse_table_cell">1615 K</td>
+                    <td class="pse_table_cell">1817</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1</td>
+                    <td class="pse_table_cell">[He] 2s1</td>
+                    <td class="pse_table_cell" sdval="1" sdnum="1033;">1</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="4" sdnum="1033;">4</td>
+                    <td class="pse_table_cell">Be</td>
+                    <td class="pse_table_cell">Beryllium</td>
+                    <td class="pse_table_cell">Beryllium</td>
+                    <td class="pse_table_cell">Erdalkalimetall</td>
+                    <td class="pse_table_cell" sdval="9,012" sdnum="1033;">9,012</td>
+                    <td class="pse_table_cell">1,848 g/cm3</td>
+                    <td class="pse_table_cell">1560 K</td>
+                    <td class="pse_table_cell">2742 K</td>
+                    <td class="pse_table_cell">1797</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,5</td>
+                    <td class="pse_table_cell">[He] 2s2</td>
+                    <td class="pse_table_cell" sdval="2" sdnum="1033;">2</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="5" sdnum="1033;">5</td>
+                    <td class="pse_table_cell">B</td>
+                    <td class="pse_table_cell">Bor</td>
+                    <td class="pse_table_cell">Boron</td>
+                    <td class="pse_table_cell">Halbmetall</td>
+                    <td class="pse_table_cell" sdval="10,811" sdnum="1033;">10,811</td>
+                    <td class="pse_table_cell">2,08 g/cm3</td>
+                    <td class="pse_table_cell">2349 K</td>
+                    <td class="pse_table_cell">4200 K</td>
+                    <td class="pse_table_cell">1808</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">2</td>
+                    <td class="pse_table_cell">[He] 2s2&nbsp;2p1</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="6" sdnum="1033;">6</td>
+                    <td class="pse_table_cell">C</td>
+                    <td class="pse_table_cell">Kohlenstoff</td>
+                    <td class="pse_table_cell">Carbon</td>
+                    <td class="pse_table_cell">Nichtmetall</td>
+                    <td class="pse_table_cell" sdval="12,011" sdnum="1033;">12,011</td>
+                    <td class="pse_table_cell">1,8 g/cm3 (amorph) bis 3,5 g/cm3 (Diamant)</td>
+                    <td class="pse_table_cell">3546 K</td>
+                    <td class="pse_table_cell">4827 K</td>
+                    <td class="pse_table_cell">seit Altertum bekannt</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">2,5</td>
+                    <td class="pse_table_cell">[He] 2s2&nbsp;2p2</td>
+                    <td class="pse_table_cell" sdval="4" sdnum="1033;">4</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="7" sdnum="1033;">7</td>
+                    <td class="pse_table_cell">N</td>
+                    <td class="pse_table_cell">Stickstoff</td>
+                    <td class="pse_table_cell">Nitrogen</td>
+                    <td class="pse_table_cell">Nichtmetall</td>
+                    <td class="pse_table_cell" sdval="14,007" sdnum="1033;">14,007</td>
+                    <td class="pse_table_cell">0,00117 g/cm3</td>
+                    <td class="pse_table_cell">63,15 K</td>
+                    <td class="pse_table_cell">77,36 K</td>
+                    <td class="pse_table_cell">1771</td>
+                    <td class="pse_table_cell">Gasf&ouml;rmig</td>
+                    <td class="pse_table_cell">3</td>
+                    <td class="pse_table_cell">[He] 2s2&nbsp;2p3</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="8" sdnum="1033;">8</td>
+                    <td class="pse_table_cell">O</td>
+                    <td class="pse_table_cell">Sauerstoff</td>
+                    <td class="pse_table_cell">Oxygen</td>
+                    <td class="pse_table_cell">Nichtmetall</td>
+                    <td class="pse_table_cell" sdval="15,999" sdnum="1033;">15,999</td>
+                    <td class="pse_table_cell">0,00133 g/cm3</td>
+                    <td class="pse_table_cell">54,36 K</td>
+                    <td class="pse_table_cell">90,2 K</td>
+                    <td class="pse_table_cell">1774</td>
+                    <td class="pse_table_cell">Gasf&ouml;rmig</td>
+                    <td class="pse_table_cell">3,5</td>
+                    <td class="pse_table_cell">[He] 2s2&nbsp;2p4</td>
+                    <td class="pse_table_cell" sdval="-2" sdnum="1033;">-2</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="9" sdnum="1033;">9</td>
+                    <td class="pse_table_cell">F</td>
+                    <td class="pse_table_cell">Fluor</td>
+                    <td class="pse_table_cell">Fluorine</td>
+                    <td class="pse_table_cell">Halogen</td>
+                    <td class="pse_table_cell" sdval="18,998" sdnum="1033;">18,998</td>
+                    <td class="pse_table_cell">0,00158 g/cm3</td>
+                    <td class="pse_table_cell">53,53 K</td>
+                    <td class="pse_table_cell">85,03 K</td>
+                    <td class="pse_table_cell">1886</td>
+                    <td class="pse_table_cell">Gasf&ouml;rmig</td>
+                    <td class="pse_table_cell">4</td>
+                    <td class="pse_table_cell">[He] 2s2&nbsp;2p5</td>
+                    <td class="pse_table_cell" sdval="-1" sdnum="1033;">-1</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="10" sdnum="1033;">10</td>
+                    <td class="pse_table_cell">Ne</td>
+                    <td class="pse_table_cell">Neon</td>
+                    <td class="pse_table_cell">Neon</td>
+                    <td class="pse_table_cell">Edelgas</td>
+                    <td class="pse_table_cell" sdval="20,18" sdnum="1033;">20,18</td>
+                    <td class="pse_table_cell">0,00084 g/cm3</td>
+                    <td class="pse_table_cell">24,56 K</td>
+                    <td class="pse_table_cell">27,07 K</td>
+                    <td class="pse_table_cell">1898</td>
+                    <td class="pse_table_cell">Gasf&ouml;rmig</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">[He] 2s2&nbsp;2p6</td>
+                    <td class="pse_table_cell" sdval="0" sdnum="1033;">0</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="11" sdnum="1033;">11</td>
+                    <td class="pse_table_cell">Na</td>
+                    <td class="pse_table_cell">Natrium</td>
+                    <td class="pse_table_cell">Sodium</td>
+                    <td class="pse_table_cell">Alkalimetall</td>
+                    <td class="pse_table_cell" sdval="22,99" sdnum="1033;">22,99</td>
+                    <td class="pse_table_cell">0,968 g/cm3</td>
+                    <td class="pse_table_cell">370,87 K</td>
+                    <td class="pse_table_cell">1156 K</td>
+                    <td class="pse_table_cell">1807</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">0,9</td>
+                    <td class="pse_table_cell">[Ne] 3s1</td>
+                    <td class="pse_table_cell" sdval="1" sdnum="1033;">1</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="12" sdnum="1033;">12</td>
+                    <td class="pse_table_cell">Mg</td>
+                    <td class="pse_table_cell">Magnesium</td>
+                    <td class="pse_table_cell">Magnesium</td>
+                    <td class="pse_table_cell">Erdalkalimetall</td>
+                    <td class="pse_table_cell" sdval="24,305" sdnum="1033;">24,305</td>
+                    <td class="pse_table_cell">1,738 g/cm3</td>
+                    <td class="pse_table_cell">923 K</td>
+                    <td class="pse_table_cell">1363 K</td>
+                    <td class="pse_table_cell">1828</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,2</td>
+                    <td class="pse_table_cell">[Ne] 3s2</td>
+                    <td class="pse_table_cell" sdval="2" sdnum="1033;">2</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="13" sdnum="1033;">13</td>
+                    <td class="pse_table_cell">Al</td>
+                    <td class="pse_table_cell">Aluminium</td>
+                    <td class="pse_table_cell">Aluminum</td>
+                    <td class="pse_table_cell">Metall</td>
+                    <td class="pse_table_cell" sdval="26,982" sdnum="1033;">26,982</td>
+                    <td class="pse_table_cell">2,699 g/cm3</td>
+                    <td class="pse_table_cell">933,47 K</td>
+                    <td class="pse_table_cell">2792 K</td>
+                    <td class="pse_table_cell">1825</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,5</td>
+                    <td class="pse_table_cell">[Ne] 3s2&nbsp;3p1</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="14" sdnum="1033;">14</td>
+                    <td class="pse_table_cell">Si</td>
+                    <td class="pse_table_cell">Silizium</td>
+                    <td class="pse_table_cell">Silicon</td>
+                    <td class="pse_table_cell">Halbmetall</td>
+                    <td class="pse_table_cell" sdval="28,086" sdnum="1033;">28,086</td>
+                    <td class="pse_table_cell">2,336 g/cm3</td>
+                    <td class="pse_table_cell">1687 K</td>
+                    <td class="pse_table_cell">3538 K</td>
+                    <td class="pse_table_cell">1824</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,8</td>
+                    <td class="pse_table_cell">[Ne] 3s2&nbsp;3p2</td>
+                    <td class="pse_table_cell" sdval="4" sdnum="1033;">4</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="15" sdnum="1033;">15</td>
+                    <td class="pse_table_cell">P</td>
+                    <td class="pse_table_cell">Phosphor</td>
+                    <td class="pse_table_cell">Phosphorus</td>
+                    <td class="pse_table_cell">Nichtmetall</td>
+                    <td class="pse_table_cell" sdval="30,974" sdnum="1033;">30,974</td>
+                    <td class="pse_table_cell">1,82 g/cm3</td>
+                    <td class="pse_table_cell">44,2 K</td>
+                    <td class="pse_table_cell">280,5 K</td>
+                    <td class="pse_table_cell">1669</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">2,1</td>
+                    <td class="pse_table_cell">[Ne] 3s2&nbsp;3p3</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell">, 5, 4</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="16" sdnum="1033;">16</td>
+                    <td class="pse_table_cell">S</td>
+                    <td class="pse_table_cell">Schwefel</td>
+                    <td class="pse_table_cell">Sulfur</td>
+                    <td class="pse_table_cell">Nichtmetall</td>
+                    <td class="pse_table_cell" sdval="32,066" sdnum="1033;">32,066</td>
+                    <td class="pse_table_cell">2,06 g/cm3</td>
+                    <td class="pse_table_cell">388,36 K</td>
+                    <td class="pse_table_cell">717,8 K</td>
+                    <td class="pse_table_cell">seit Altertum bekannt</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">2,5</td>
+                    <td class="pse_table_cell">[Ne] 3s2&nbsp;3p4</td>
+                    <td class="pse_table_cell" sdval="6" sdnum="1033;">6</td>
+                    <td class="pse_table_cell">, 2, 4</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="17" sdnum="1033;">17</td>
+                    <td class="pse_table_cell">Cl</td>
+                    <td class="pse_table_cell">Chlor</td>
+                    <td class="pse_table_cell">Chlorine</td>
+                    <td class="pse_table_cell">Halogen</td>
+                    <td class="pse_table_cell" sdval="35,453" sdnum="1033;">35,453</td>
+                    <td class="pse_table_cell">0,00295 g/cm3</td>
+                    <td class="pse_table_cell">171,6 K</td>
+                    <td class="pse_table_cell">239,11 K</td>
+                    <td class="pse_table_cell">1774</td>
+                    <td class="pse_table_cell">Gasf&ouml;rmig</td>
+                    <td class="pse_table_cell">3</td>
+                    <td class="pse_table_cell">[Ne] 3s2&nbsp;3p5</td>
+                    <td class="pse_table_cell" sdval="1" sdnum="1033;">1</td>
+                    <td class="pse_table_cell">, 3, 5, 7</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="18" sdnum="1033;">18</td>
+                    <td class="pse_table_cell">Ar</td>
+                    <td class="pse_table_cell">Argon</td>
+                    <td class="pse_table_cell">Argon</td>
+                    <td class="pse_table_cell">Edelgas</td>
+                    <td class="pse_table_cell" sdval="39,948" sdnum="1033;">39,948</td>
+                    <td class="pse_table_cell">0,00166 g/cm3</td>
+                    <td class="pse_table_cell">83,8 K</td>
+                    <td class="pse_table_cell">87,3 K</td>
+                    <td class="pse_table_cell">1894</td>
+                    <td class="pse_table_cell">Gasf&ouml;rmig</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">[Ne] 3s2&nbsp;3p6</td>
+                    <td class="pse_table_cell" sdval="0" sdnum="1033;">0</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="19" sdnum="1033;">19</td>
+                    <td class="pse_table_cell">K</td>
+                    <td class="pse_table_cell">Kalium</td>
+                    <td class="pse_table_cell">Potassium</td>
+                    <td class="pse_table_cell">Alkalimetall</td>
+                    <td class="pse_table_cell" sdval="39,098" sdnum="1033;">39,098</td>
+                    <td class="pse_table_cell">0,856 g/cm3</td>
+                    <td class="pse_table_cell">336,53 K</td>
+                    <td class="pse_table_cell">1032 K</td>
+                    <td class="pse_table_cell">1807</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">0,8</td>
+                    <td class="pse_table_cell">[Ar] 4s1</td>
+                    <td class="pse_table_cell" sdval="1" sdnum="1033;">1</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="20" sdnum="1033;">20</td>
+                    <td class="pse_table_cell">Ca</td>
+                    <td class="pse_table_cell">Kalzium</td>
+                    <td class="pse_table_cell">Calcium</td>
+                    <td class="pse_table_cell">Erdalkalimetall</td>
+                    <td class="pse_table_cell" sdval="40,078" sdnum="1033;">40,078</td>
+                    <td class="pse_table_cell">1,54 g/cm3</td>
+                    <td class="pse_table_cell">1115 K</td>
+                    <td class="pse_table_cell">1757 K</td>
+                    <td class="pse_table_cell">1808</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1</td>
+                    <td class="pse_table_cell">[Ar] 4s2</td>
+                    <td class="pse_table_cell" sdval="2" sdnum="1033;">2</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="21" sdnum="1033;">21</td>
+                    <td class="pse_table_cell">Sc</td>
+                    <td class="pse_table_cell">Scandium</td>
+                    <td class="pse_table_cell">Scandium</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="44,956" sdnum="1033;">44,956</td>
+                    <td class="pse_table_cell">2,99 g/cm3</td>
+                    <td class="pse_table_cell">1814 K</td>
+                    <td class="pse_table_cell">3109 K</td>
+                    <td class="pse_table_cell">1879</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,3</td>
+                    <td class="pse_table_cell">[Ar] 3d1&nbsp;4s2</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="22" sdnum="1033;">22</td>
+                    <td class="pse_table_cell">Ti</td>
+                    <td class="pse_table_cell">Titan</td>
+                    <td class="pse_table_cell">Titanium</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="47,88" sdnum="1033;">47,88</td>
+                    <td class="pse_table_cell">4,51 g/cm3</td>
+                    <td class="pse_table_cell">1941 K</td>
+                    <td class="pse_table_cell">3560 K</td>
+                    <td class="pse_table_cell">1791</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,5</td>
+                    <td class="pse_table_cell">[Ar] 3d2&nbsp;4s2</td>
+                    <td class="pse_table_cell" sdval="4" sdnum="1033;">4</td>
+                    <td class="pse_table_cell">, 3</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="23" sdnum="1033;">23</td>
+                    <td class="pse_table_cell">V</td>
+                    <td class="pse_table_cell">Vanadium</td>
+                    <td class="pse_table_cell">Vanadium</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="50,942" sdnum="1033;">50,942</td>
+                    <td class="pse_table_cell">6,09 g/cm3</td>
+                    <td class="pse_table_cell">2183 K</td>
+                    <td class="pse_table_cell">3680 K</td>
+                    <td class="pse_table_cell">1801</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,6</td>
+                    <td class="pse_table_cell">[Ar] 3d3&nbsp;4s2</td>
+                    <td class="pse_table_cell" sdval="5" sdnum="1033;">5</td>
+                    <td class="pse_table_cell">, 4, 3, 2</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="24" sdnum="1033;">24</td>
+                    <td class="pse_table_cell">Cr</td>
+                    <td class="pse_table_cell">Chrom</td>
+                    <td class="pse_table_cell">Chromium</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="51,996" sdnum="1033;">51,996</td>
+                    <td class="pse_table_cell">7,14 g/cm3</td>
+                    <td class="pse_table_cell">2180 K</td>
+                    <td class="pse_table_cell">2944 K</td>
+                    <td class="pse_table_cell">1797</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,6</td>
+                    <td class="pse_table_cell">[Ar] 3d5&nbsp;4s1</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell">, 6, 2</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="25" sdnum="1033;">25</td>
+                    <td class="pse_table_cell">Mn</td>
+                    <td class="pse_table_cell">Mangan</td>
+                    <td class="pse_table_cell">Manganese</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="54,938" sdnum="1033;">54,938</td>
+                    <td class="pse_table_cell">7,44 g/cm3</td>
+                    <td class="pse_table_cell">1519 K</td>
+                    <td class="pse_table_cell">2334 K</td>
+                    <td class="pse_table_cell">1774</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,5</td>
+                    <td class="pse_table_cell">[Ar] 3d5&nbsp;4s2</td>
+                    <td class="pse_table_cell" sdval="2" sdnum="1033;">2</td>
+                    <td class="pse_table_cell">, 7, 6, 4, 3</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="26" sdnum="1033;">26</td>
+                    <td class="pse_table_cell">Fe</td>
+                    <td class="pse_table_cell">Eisen</td>
+                    <td class="pse_table_cell">Iron</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="55,847" sdnum="1033;">55,847</td>
+                    <td class="pse_table_cell">7,874 g/cm3</td>
+                    <td class="pse_table_cell">1811 K</td>
+                    <td class="pse_table_cell">3134 K</td>
+                    <td class="pse_table_cell">seit Altertum bekannt</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,8</td>
+                    <td class="pse_table_cell">[Ar] 3d6&nbsp;4s2</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell">, 2</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="27" sdnum="1033;">27</td>
+                    <td class="pse_table_cell">Co</td>
+                    <td class="pse_table_cell">Kobalt</td>
+                    <td class="pse_table_cell">Cobalt</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="58,933" sdnum="1033;">58,933</td>
+                    <td class="pse_table_cell">8,89 g/cm3</td>
+                    <td class="pse_table_cell">1768 K</td>
+                    <td class="pse_table_cell">3200 K</td>
+                    <td class="pse_table_cell">1735</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,8</td>
+                    <td class="pse_table_cell">[Ar] 3d7&nbsp;4s2</td>
+                    <td class="pse_table_cell" sdval="2" sdnum="1033;">2</td>
+                    <td class="pse_table_cell">, 3</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="28" sdnum="1033;">28</td>
+                    <td class="pse_table_cell">Ni</td>
+                    <td class="pse_table_cell">Nickel</td>
+                    <td class="pse_table_cell">Nickel</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="58,693" sdnum="1033;">58,693</td>
+                    <td class="pse_table_cell">8,91 g/cm3</td>
+                    <td class="pse_table_cell">1728 K</td>
+                    <td class="pse_table_cell">3186 K</td>
+                    <td class="pse_table_cell">1751</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,8</td>
+                    <td class="pse_table_cell">[Ar] 3d8&nbsp;4s2</td>
+                    <td class="pse_table_cell" sdval="2" sdnum="1033;">2</td>
+                    <td class="pse_table_cell">, 3</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="29" sdnum="1033;">29</td>
+                    <td class="pse_table_cell">Cu</td>
+                    <td class="pse_table_cell">Kupfer</td>
+                    <td class="pse_table_cell">Copper</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="63,546" sdnum="1033;">63,546</td>
+                    <td class="pse_table_cell">8,92 g/cm3</td>
+                    <td class="pse_table_cell">1357,77 K</td>
+                    <td class="pse_table_cell">2835 K</td>
+                    <td class="pse_table_cell">seit Altertum bekannt</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,9</td>
+                    <td class="pse_table_cell">[Ar] 3d10&nbsp;4s1</td>
+                    <td class="pse_table_cell" sdval="2" sdnum="1033;">2</td>
+                    <td class="pse_table_cell">, 1</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="30" sdnum="1033;">30</td>
+                    <td class="pse_table_cell">Zn</td>
+                    <td class="pse_table_cell">Zink</td>
+                    <td class="pse_table_cell">Zinc</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="65,39" sdnum="1033;">65,39</td>
+                    <td class="pse_table_cell">7,14 g/cm3</td>
+                    <td class="pse_table_cell">692,68 K</td>
+                    <td class="pse_table_cell">1180 K</td>
+                    <td class="pse_table_cell">seit Altertum bekannt</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,6</td>
+                    <td class="pse_table_cell">[Ar] 3d10&nbsp;4s2</td>
+                    <td class="pse_table_cell" sdval="2" sdnum="1033;">2</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="31" sdnum="1033;">31</td>
+                    <td class="pse_table_cell">Ga</td>
+                    <td class="pse_table_cell">Gallium</td>
+                    <td class="pse_table_cell">Gallium</td>
+                    <td class="pse_table_cell">Metall</td>
+                    <td class="pse_table_cell" sdval="69,723" sdnum="1033;">69,723</td>
+                    <td class="pse_table_cell">5,904 g/cm3</td>
+                    <td class="pse_table_cell">302,91 K</td>
+                    <td class="pse_table_cell">2477 K</td>
+                    <td class="pse_table_cell">1875</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,6</td>
+                    <td class="pse_table_cell">[Ar] 3d10&nbsp;4s2&nbsp;4p1</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="32" sdnum="1033;">32</td>
+                    <td class="pse_table_cell">Ge</td>
+                    <td class="pse_table_cell">Germanium</td>
+                    <td class="pse_table_cell">Germanium</td>
+                    <td class="pse_table_cell">Halbmetall</td>
+                    <td class="pse_table_cell" sdval="72,61" sdnum="1033;">72,61</td>
+                    <td class="pse_table_cell">5,323 g/cm3</td>
+                    <td class="pse_table_cell">1211,4 K</td>
+                    <td class="pse_table_cell">3106 K</td>
+                    <td class="pse_table_cell">1886</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,8</td>
+                    <td class="pse_table_cell">[Ar] 3d10&nbsp;4s2&nbsp;4p2</td>
+                    <td class="pse_table_cell" sdval="4" sdnum="1033;">4</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="33" sdnum="1033;">33</td>
+                    <td class="pse_table_cell">As</td>
+                    <td class="pse_table_cell">Arsen</td>
+                    <td class="pse_table_cell">Arsenic</td>
+                    <td class="pse_table_cell">Halbmetall</td>
+                    <td class="pse_table_cell" sdval="74,922" sdnum="1033;">74,922</td>
+                    <td class="pse_table_cell">5,72 g/cm3</td>
+                    <td class="pse_table_cell">1211,4 K</td>
+                    <td class="pse_table_cell">3106 K</td>
+                    <td class="pse_table_cell">13, Jahrhundert</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">2</td>
+                    <td class="pse_table_cell">[Ar] 3d10&nbsp;4s2&nbsp;4p3</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell">, 5</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="34" sdnum="1033;">34</td>
+                    <td class="pse_table_cell">Se</td>
+                    <td class="pse_table_cell">Selen</td>
+                    <td class="pse_table_cell">Selenium</td>
+                    <td class="pse_table_cell">Halbmetall</td>
+                    <td class="pse_table_cell" sdval="78,96" sdnum="1033;">78,96</td>
+                    <td class="pse_table_cell">4,819 g/cm3</td>
+                    <td class="pse_table_cell">494 K</td>
+                    <td class="pse_table_cell">958 K</td>
+                    <td class="pse_table_cell">1817</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">2,4</td>
+                    <td class="pse_table_cell">[Ar] 3d10&nbsp;4s2&nbsp;4p4</td>
+                    <td class="pse_table_cell" sdval="4" sdnum="1033;">4</td>
+                    <td class="pse_table_cell">, 6, -2</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="35" sdnum="1033;">35</td>
+                    <td class="pse_table_cell">Br</td>
+                    <td class="pse_table_cell">Brom</td>
+                    <td class="pse_table_cell">Bromine</td>
+                    <td class="pse_table_cell">Halogen</td>
+                    <td class="pse_table_cell" sdval="79,904" sdnum="1033;">79,904</td>
+                    <td class="pse_table_cell">3,14 g/cm3</td>
+                    <td class="pse_table_cell">265,8 K</td>
+                    <td class="pse_table_cell">332 K</td>
+                    <td class="pse_table_cell">1826</td>
+                    <td class="pse_table_cell">Fl&uuml;ssigkeit</td>
+                    <td class="pse_table_cell">2,8</td>
+                    <td class="pse_table_cell">[Ar] 3d10&nbsp;4s2&nbsp;4p5</td>
+                    <td class="pse_table_cell" sdval="1" sdnum="1033;">1</td>
+                    <td class="pse_table_cell">, 5, 7</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="36" sdnum="1033;">36</td>
+                    <td class="pse_table_cell">Kr</td>
+                    <td class="pse_table_cell">Krypton</td>
+                    <td class="pse_table_cell">Krypton</td>
+                    <td class="pse_table_cell">Edelgas</td>
+                    <td class="pse_table_cell" sdval="83,8" sdnum="1033;">83,8</td>
+                    <td class="pse_table_cell">0,003749 g/cm3</td>
+                    <td class="pse_table_cell">115,79 K</td>
+                    <td class="pse_table_cell">119,93 K</td>
+                    <td class="pse_table_cell">1898</td>
+                    <td class="pse_table_cell">Gasf&ouml;rmig</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">[Ar] 3d10&nbsp;4s2&nbsp;4p6</td>
+                    <td class="pse_table_cell" sdval="0" sdnum="1033;">0</td>
+                    <td class="pse_table_cell">, 2</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="37" sdnum="1033;">37</td>
+                    <td class="pse_table_cell">Rb</td>
+                    <td class="pse_table_cell">Rubidium</td>
+                    <td class="pse_table_cell">Rubidium</td>
+                    <td class="pse_table_cell">Alkalimetall</td>
+                    <td class="pse_table_cell" sdval="85,468" sdnum="1033;">85,468</td>
+                    <td class="pse_table_cell">1,53 g/cm3</td>
+                    <td class="pse_table_cell">312,46 K</td>
+                    <td class="pse_table_cell">961 K</td>
+                    <td class="pse_table_cell">1861</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">0,8</td>
+                    <td class="pse_table_cell">[Kr] 5s1</td>
+                    <td class="pse_table_cell" sdval="1" sdnum="1033;">1</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="38" sdnum="1033;">38</td>
+                    <td class="pse_table_cell">Sr</td>
+                    <td class="pse_table_cell">Strontium</td>
+                    <td class="pse_table_cell">Strontium</td>
+                    <td class="pse_table_cell">Erdalkalimetall</td>
+                    <td class="pse_table_cell" sdval="87,62" sdnum="1033;">87,62</td>
+                    <td class="pse_table_cell">2,63 g/cm3</td>
+                    <td class="pse_table_cell">1050 K</td>
+                    <td class="pse_table_cell">1655 K</td>
+                    <td class="pse_table_cell">1798</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1</td>
+                    <td class="pse_table_cell">[Kr] 5s2</td>
+                    <td class="pse_table_cell" sdval="2" sdnum="1033;">2</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="39" sdnum="1033;">39</td>
+                    <td class="pse_table_cell">Y</td>
+                    <td class="pse_table_cell">Yttrium</td>
+                    <td class="pse_table_cell">Yttrium</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="88,906" sdnum="1033;">88,906</td>
+                    <td class="pse_table_cell">4,47 g/cm3</td>
+                    <td class="pse_table_cell">1799 K</td>
+                    <td class="pse_table_cell">3609 K</td>
+                    <td class="pse_table_cell">1794</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,2</td>
+                    <td class="pse_table_cell">[Kr] 4d1&nbsp;5s2</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="40" sdnum="1033;">40</td>
+                    <td class="pse_table_cell">Zr</td>
+                    <td class="pse_table_cell">Zirkonium</td>
+                    <td class="pse_table_cell">Zirconium</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="91,224" sdnum="1033;">91,224</td>
+                    <td class="pse_table_cell">6,51 g/cm3</td>
+                    <td class="pse_table_cell">2128 K</td>
+                    <td class="pse_table_cell">4682 K</td>
+                    <td class="pse_table_cell">1789</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,4</td>
+                    <td class="pse_table_cell">[Kr] 4d2&nbsp;5s2</td>
+                    <td class="pse_table_cell" sdval="4" sdnum="1033;">4</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="41" sdnum="1033;">41</td>
+                    <td class="pse_table_cell">Nb</td>
+                    <td class="pse_table_cell">Niob</td>
+                    <td class="pse_table_cell">Niobium</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="92,906" sdnum="1033;">92,906</td>
+                    <td class="pse_table_cell">8,58 g/cm3</td>
+                    <td class="pse_table_cell">2750 K</td>
+                    <td class="pse_table_cell">5017 K</td>
+                    <td class="pse_table_cell">1801</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,6</td>
+                    <td class="pse_table_cell">[Kr] 4d4&nbsp;5s1</td>
+                    <td class="pse_table_cell" sdval="5" sdnum="1033;">5</td>
+                    <td class="pse_table_cell">, 3</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="42" sdnum="1033;">42</td>
+                    <td class="pse_table_cell">Mo</td>
+                    <td class="pse_table_cell">Molybd&auml;n</td>
+                    <td class="pse_table_cell">Molybdenum</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="95,94" sdnum="1033;">95,94</td>
+                    <td class="pse_table_cell">10,28 g/cm3</td>
+                    <td class="pse_table_cell">2896 K</td>
+                    <td class="pse_table_cell">4912 K</td>
+                    <td class="pse_table_cell">1778</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,8</td>
+                    <td class="pse_table_cell">[Kr] 4d5&nbsp;5s1</td>
+                    <td class="pse_table_cell" sdval="6" sdnum="1033;">6</td>
+                    <td class="pse_table_cell">, 5, 4, 3, 2</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="43" sdnum="1033;">43</td>
+                    <td class="pse_table_cell">Tc</td>
+                    <td class="pse_table_cell">Technetium</td>
+                    <td class="pse_table_cell">Technetium</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="98" sdnum="1033;">98</td>
+                    <td class="pse_table_cell">11,49 g/cm3</td>
+                    <td class="pse_table_cell">2430 K</td>
+                    <td class="pse_table_cell">4538 K</td>
+                    <td class="pse_table_cell">1937</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,9</td>
+                    <td class="pse_table_cell">[Kr] 4d6&nbsp;5s1</td>
+                    <td class="pse_table_cell" sdval="7" sdnum="1033;">7</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="44" sdnum="1033;">44</td>
+                    <td class="pse_table_cell">Ru</td>
+                    <td class="pse_table_cell">Ruthenium</td>
+                    <td class="pse_table_cell">Ruthenium</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="101,07" sdnum="1033;">101,07</td>
+                    <td class="pse_table_cell">12,45 g/cm3</td>
+                    <td class="pse_table_cell">2607 K</td>
+                    <td class="pse_table_cell">4423 K</td>
+                    <td class="pse_table_cell">1844</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">2,2</td>
+                    <td class="pse_table_cell">[Kr] 4d7&nbsp;5s1</td>
+                    <td class="pse_table_cell">3, 2</td>
+                    <td class="pse_table_cell">, 2, 6, 8</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="45" sdnum="1033;">45</td>
+                    <td class="pse_table_cell">Rh</td>
+                    <td class="pse_table_cell">Rhodium</td>
+                    <td class="pse_table_cell">Rhodium</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="102,906" sdnum="1033;">102,906</td>
+                    <td class="pse_table_cell">12,41 g/cm3</td>
+                    <td class="pse_table_cell">2237 K</td>
+                    <td class="pse_table_cell">3968 K</td>
+                    <td class="pse_table_cell">1803</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">2,2</td>
+                    <td class="pse_table_cell">[Kr] 4d8&nbsp;5s1</td>
+                    <td class="pse_table_cell" sdval="2" sdnum="1033;">2</td>
+                    <td class="pse_table_cell">, 2, 4</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="46" sdnum="1033;">46</td>
+                    <td class="pse_table_cell">Pd</td>
+                    <td class="pse_table_cell">Palladium</td>
+                    <td class="pse_table_cell">Palladium</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="106,42" sdnum="1033;">106,42</td>
+                    <td class="pse_table_cell">12,02 g/cm3</td>
+                    <td class="pse_table_cell">1823,05 K</td>
+                    <td class="pse_table_cell">3236 K</td>
+                    <td class="pse_table_cell">1803</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">2,2</td>
+                    <td class="pse_table_cell">[Kr] 4d10</td>
+                    <td class="pse_table_cell" sdval="2" sdnum="1033;">2</td>
+                    <td class="pse_table_cell">, 4</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="47" sdnum="1033;">47</td>
+                    <td class="pse_table_cell">Ag</td>
+                    <td class="pse_table_cell">Silber</td>
+                    <td class="pse_table_cell">Silver</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="107,868" sdnum="1033;">107,868</td>
+                    <td class="pse_table_cell">10,49 g/cm3</td>
+                    <td class="pse_table_cell">1234,93 K</td>
+                    <td class="pse_table_cell">2435 K</td>
+                    <td class="pse_table_cell">seit Altertum bekannt</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,9</td>
+                    <td class="pse_table_cell">[Kr] 4d10&nbsp;5s1</td>
+                    <td class="pse_table_cell" sdval="1" sdnum="1033;">1</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="48" sdnum="1033;">48</td>
+                    <td class="pse_table_cell">Cd</td>
+                    <td class="pse_table_cell">Cadmium</td>
+                    <td class="pse_table_cell">Cadmium</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="112,41" sdnum="1033;">112,41</td>
+                    <td class="pse_table_cell">8,64 g/cm3</td>
+                    <td class="pse_table_cell">594,22 K</td>
+                    <td class="pse_table_cell">1040 K</td>
+                    <td class="pse_table_cell">1817</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,7</td>
+                    <td class="pse_table_cell">[Kr] 4d10&nbsp;5s2</td>
+                    <td class="pse_table_cell" sdval="2" sdnum="1033;">2</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="49" sdnum="1033;">49</td>
+                    <td class="pse_table_cell">In</td>
+                    <td class="pse_table_cell">Indium</td>
+                    <td class="pse_table_cell">Indium</td>
+                    <td class="pse_table_cell">Metall</td>
+                    <td class="pse_table_cell" sdval="114,82" sdnum="1033;">114,82</td>
+                    <td class="pse_table_cell">7,31 g/cm3</td>
+                    <td class="pse_table_cell">429,75 K</td>
+                    <td class="pse_table_cell">2345 K</td>
+                    <td class="pse_table_cell">1863</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,7</td>
+                    <td class="pse_table_cell">[Kr] 4d10&nbsp;5s2&nbsp;5p1</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="50" sdnum="1033;">50</td>
+                    <td class="pse_table_cell">Sn</td>
+                    <td class="pse_table_cell">Glauben</td>
+                    <td class="pse_table_cell">Tin</td>
+                    <td class="pse_table_cell">Metall</td>
+                    <td class="pse_table_cell" sdval="118,71" sdnum="1033;">118,71</td>
+                    <td class="pse_table_cell">7,29 g/cm3</td>
+                    <td class="pse_table_cell">505,08 K</td>
+                    <td class="pse_table_cell">2875 K</td>
+                    <td class="pse_table_cell">seit Altertum bekannt</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,8</td>
+                    <td class="pse_table_cell">[Kr] 4d10&nbsp;5s2&nbsp;5p2</td>
+                    <td class="pse_table_cell" sdval="4" sdnum="1033;">4</td>
+                    <td class="pse_table_cell">, 2</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="51" sdnum="1033;">51</td>
+                    <td class="pse_table_cell">Sb</td>
+                    <td class="pse_table_cell">Antimon</td>
+                    <td class="pse_table_cell">Antimony</td>
+                    <td class="pse_table_cell">Halbmetall</td>
+                    <td class="pse_table_cell" sdval="121,757" sdnum="1033;">121,757</td>
+                    <td class="pse_table_cell">6,69 g/cm3</td>
+                    <td class="pse_table_cell">903,78 K</td>
+                    <td class="pse_table_cell">1860 K</td>
+                    <td class="pse_table_cell">seit Altertum bekannt</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,9</td>
+                    <td class="pse_table_cell">[Kr] 4d10&nbsp;5s2&nbsp;5p3</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell">, 5</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="52" sdnum="1033;">52</td>
+                    <td class="pse_table_cell">Te</td>
+                    <td class="pse_table_cell">Tellur</td>
+                    <td class="pse_table_cell">Tellurium</td>
+                    <td class="pse_table_cell">Halbmetall</td>
+                    <td class="pse_table_cell" sdval="127,6" sdnum="1033;">127,6</td>
+                    <td class="pse_table_cell">6,24 g/cm3</td>
+                    <td class="pse_table_cell">722,66 K</td>
+                    <td class="pse_table_cell">1261 K</td>
+                    <td class="pse_table_cell">1782</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">2,1</td>
+                    <td class="pse_table_cell">[Kr] 4d10&nbsp;5s2&nbsp;5p4</td>
+                    <td class="pse_table_cell" sdval="4" sdnum="1033;">4</td>
+                    <td class="pse_table_cell">, 6, -2</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="53" sdnum="1033;">53</td>
+                    <td class="pse_table_cell">I</td>
+                    <td class="pse_table_cell">Jod</td>
+                    <td class="pse_table_cell">Iodine</td>
+                    <td class="pse_table_cell">Halogen</td>
+                    <td class="pse_table_cell" sdval="126,905" sdnum="1033;">126,905</td>
+                    <td class="pse_table_cell">4,94 g/cm3</td>
+                    <td class="pse_table_cell">386,85 K</td>
+                    <td class="pse_table_cell">457,4 K</td>
+                    <td class="pse_table_cell">1811</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">2,5</td>
+                    <td class="pse_table_cell">[Kr] 4d10&nbsp;5s2&nbsp;5p5</td>
+                    <td class="pse_table_cell" sdval="1" sdnum="1033;">1</td>
+                    <td class="pse_table_cell">, 5, 7</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="54" sdnum="1033;">54</td>
+                    <td class="pse_table_cell">Xe</td>
+                    <td class="pse_table_cell">Xenon</td>
+                    <td class="pse_table_cell">Xenon</td>
+                    <td class="pse_table_cell">Edelgas</td>
+                    <td class="pse_table_cell" sdval="131,29" sdnum="1033;">131,29</td>
+                    <td class="pse_table_cell">0,00449 g/cm3</td>
+                    <td class="pse_table_cell">161,4 K</td>
+                    <td class="pse_table_cell">165,03 K</td>
+                    <td class="pse_table_cell">1898</td>
+                    <td class="pse_table_cell">Gasf&ouml;rmig</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">[Kr] 4d10&nbsp;5s2&nbsp;5p6</td>
+                    <td class="pse_table_cell" sdval="0" sdnum="1033;">0</td>
+                    <td class="pse_table_cell">, 2, 4, 6</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="55" sdnum="1033;">55</td>
+                    <td class="pse_table_cell">Cs</td>
+                    <td class="pse_table_cell">C&auml;sium</td>
+                    <td class="pse_table_cell">Cesium</td>
+                    <td class="pse_table_cell">Alkalimetall</td>
+                    <td class="pse_table_cell" sdval="132,905" sdnum="1033;">132,905</td>
+                    <td class="pse_table_cell">1,9 g/cm3</td>
+                    <td class="pse_table_cell">301,59 K</td>
+                    <td class="pse_table_cell">944 K</td>
+                    <td class="pse_table_cell">1860</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">0,7</td>
+                    <td class="pse_table_cell">[Xe] 6s1</td>
+                    <td class="pse_table_cell" sdval="1" sdnum="1033;">1</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="56" sdnum="1033;">56</td>
+                    <td class="pse_table_cell">Ba</td>
+                    <td class="pse_table_cell">Barium</td>
+                    <td class="pse_table_cell">Barium</td>
+                    <td class="pse_table_cell">Erdalkalimetall</td>
+                    <td class="pse_table_cell" sdval="137,33" sdnum="1033;">137,33</td>
+                    <td class="pse_table_cell">3,65 g/cm3</td>
+                    <td class="pse_table_cell">1000 K</td>
+                    <td class="pse_table_cell">2170 K</td>
+                    <td class="pse_table_cell">1808</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">0,9</td>
+                    <td class="pse_table_cell">[Xe] 6s2</td>
+                    <td class="pse_table_cell" sdval="2" sdnum="1033;">2</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="57" sdnum="1033;">57</td>
+                    <td class="pse_table_cell">La</td>
+                    <td class="pse_table_cell">Lanthan</td>
+                    <td class="pse_table_cell">Lanthanum</td>
+                    <td class="pse_table_cell">Lanthanoid</td>
+                    <td class="pse_table_cell" sdval="138,906" sdnum="1033;">138,906</td>
+                    <td class="pse_table_cell">6,16 g/cm3</td>
+                    <td class="pse_table_cell">1193 K</td>
+                    <td class="pse_table_cell">3737 K</td>
+                    <td class="pse_table_cell">1839</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,1</td>
+                    <td class="pse_table_cell">[Xe] 5d1&nbsp;6s2</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="58" sdnum="1033;">58</td>
+                    <td class="pse_table_cell">Ce</td>
+                    <td class="pse_table_cell">Cer</td>
+                    <td class="pse_table_cell">Cerium</td>
+                    <td class="pse_table_cell">Lanthanoid</td>
+                    <td class="pse_table_cell" sdval="140,12" sdnum="1033;">140,12</td>
+                    <td class="pse_table_cell">6,77 g/cm3</td>
+                    <td class="pse_table_cell">1068 K</td>
+                    <td class="pse_table_cell">3716 K</td>
+                    <td class="pse_table_cell">1803</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,1</td>
+                    <td class="pse_table_cell">[Xe] 4f1&nbsp;5d16s2</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell">, 4</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="59" sdnum="1033;">59</td>
+                    <td class="pse_table_cell">Pr</td>
+                    <td class="pse_table_cell">Praseodym</td>
+                    <td class="pse_table_cell">Praseodymium</td>
+                    <td class="pse_table_cell">Lanthanoid</td>
+                    <td class="pse_table_cell" sdval="140,908" sdnum="1033;">140,908</td>
+                    <td class="pse_table_cell">6,48 g/cm3</td>
+                    <td class="pse_table_cell">1208 K</td>
+                    <td class="pse_table_cell">3793 K</td>
+                    <td class="pse_table_cell">1895</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,1</td>
+                    <td class="pse_table_cell">[Xe] 4f3&nbsp;6s2</td>
+                    <td class="pse_table_cell">3, 4</td>
+                    <td class="pse_table_cell">, 4</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="60" sdnum="1033;">60</td>
+                    <td class="pse_table_cell">Nd</td>
+                    <td class="pse_table_cell">Neodym</td>
+                    <td class="pse_table_cell">Neodymium</td>
+                    <td class="pse_table_cell">Lanthanoid</td>
+                    <td class="pse_table_cell" sdval="144,24" sdnum="1033;">144,24</td>
+                    <td class="pse_table_cell">7 g/cm3</td>
+                    <td class="pse_table_cell">1297 K</td>
+                    <td class="pse_table_cell">3347 K</td>
+                    <td class="pse_table_cell">1895</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,1</td>
+                    <td class="pse_table_cell">[Xe] 4f4&nbsp;6s2</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="61" sdnum="1033;">61</td>
+                    <td class="pse_table_cell">Pm</td>
+                    <td class="pse_table_cell">Promethium</td>
+                    <td class="pse_table_cell">Promethium</td>
+                    <td class="pse_table_cell">Lanthanoid</td>
+                    <td class="pse_table_cell" sdval="145" sdnum="1033;">145</td>
+                    <td class="pse_table_cell">7,22 g/cm3</td>
+                    <td class="pse_table_cell">1315 K</td>
+                    <td class="pse_table_cell">3273 K</td>
+                    <td class="pse_table_cell">1945</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,1</td>
+                    <td class="pse_table_cell">[Xe] 4f5&nbsp;6s2</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="62" sdnum="1033;">62</td>
+                    <td class="pse_table_cell">Sm</td>
+                    <td class="pse_table_cell">Samarium</td>
+                    <td class="pse_table_cell">Samarium</td>
+                    <td class="pse_table_cell">Lanthanoid</td>
+                    <td class="pse_table_cell" sdval="150,36" sdnum="1033;">150,36</td>
+                    <td class="pse_table_cell">7,54 g/cm3</td>
+                    <td class="pse_table_cell">1345 K</td>
+                    <td class="pse_table_cell">2067 K</td>
+                    <td class="pse_table_cell">1879</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,1</td>
+                    <td class="pse_table_cell">[Xe] 4f6&nbsp;6s2</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell">, 2</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="63" sdnum="1033;">63</td>
+                    <td class="pse_table_cell">Eu</td>
+                    <td class="pse_table_cell">Europium</td>
+                    <td class="pse_table_cell">Europium</td>
+                    <td class="pse_table_cell">Lanthanoid</td>
+                    <td class="pse_table_cell" sdval="151,965" sdnum="1033;">151,965</td>
+                    <td class="pse_table_cell">5,25 g/cm3</td>
+                    <td class="pse_table_cell">1099 K</td>
+                    <td class="pse_table_cell">1802 K</td>
+                    <td class="pse_table_cell">1901</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,1</td>
+                    <td class="pse_table_cell">[Xe] 4f7&nbsp;6s2</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell">, 2</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="64" sdnum="1033;">64</td>
+                    <td class="pse_table_cell">Gd</td>
+                    <td class="pse_table_cell">Gadolinium</td>
+                    <td class="pse_table_cell">Gadolinium</td>
+                    <td class="pse_table_cell">Lanthanoid</td>
+                    <td class="pse_table_cell" sdval="157,25" sdnum="1033;">157,25</td>
+                    <td class="pse_table_cell">7,89 g/cm3</td>
+                    <td class="pse_table_cell">1585 K</td>
+                    <td class="pse_table_cell">3546 K</td>
+                    <td class="pse_table_cell">1880</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,1</td>
+                    <td class="pse_table_cell">[Xe] 4f7&nbsp;5d1&nbsp;6s2</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="65" sdnum="1033;">65</td>
+                    <td class="pse_table_cell">Tb</td>
+                    <td class="pse_table_cell">Terbium</td>
+                    <td class="pse_table_cell">Terbium</td>
+                    <td class="pse_table_cell">Lanthanoid</td>
+                    <td class="pse_table_cell" sdval="158,925" sdnum="1033;">158,925</td>
+                    <td class="pse_table_cell">8,25 g/cm3</td>
+                    <td class="pse_table_cell">1629 K</td>
+                    <td class="pse_table_cell">3503 K</td>
+                    <td class="pse_table_cell">1843</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,1</td>
+                    <td class="pse_table_cell">[Xe] 4f9&nbsp;6s2</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell">, 4</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="66" sdnum="1033;">66</td>
+                    <td class="pse_table_cell">Dy</td>
+                    <td class="pse_table_cell">Dysprosium</td>
+                    <td class="pse_table_cell">Dysprosium</td>
+                    <td class="pse_table_cell">Lanthanoid</td>
+                    <td class="pse_table_cell" sdval="162,5" sdnum="1033;">162,5</td>
+                    <td class="pse_table_cell">8,54 g/cm3</td>
+                    <td class="pse_table_cell">1680 K</td>
+                    <td class="pse_table_cell">2840 K</td>
+                    <td class="pse_table_cell">1886</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,1</td>
+                    <td class="pse_table_cell">[Xe] 4f10&nbsp;6s2</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="67" sdnum="1033;">67</td>
+                    <td class="pse_table_cell">Ho</td>
+                    <td class="pse_table_cell">Holmium</td>
+                    <td class="pse_table_cell">Holmium</td>
+                    <td class="pse_table_cell">Lanthanoid</td>
+                    <td class="pse_table_cell" sdval="164,93" sdnum="1033;">164,93</td>
+                    <td class="pse_table_cell">8,78 g/cm3</td>
+                    <td class="pse_table_cell">1734 K</td>
+                    <td class="pse_table_cell">2993 K</td>
+                    <td class="pse_table_cell">1878</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,1</td>
+                    <td class="pse_table_cell">[Xe] 4f11&nbsp;6s2</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="68" sdnum="1033;">68</td>
+                    <td class="pse_table_cell">Er</td>
+                    <td class="pse_table_cell">Erbium</td>
+                    <td class="pse_table_cell">Erbium</td>
+                    <td class="pse_table_cell">Lanthanoid</td>
+                    <td class="pse_table_cell" sdval="167,26" sdnum="1033;">167,26</td>
+                    <td class="pse_table_cell">9,05 g/cm3</td>
+                    <td class="pse_table_cell">1802 K</td>
+                    <td class="pse_table_cell">3141 K</td>
+                    <td class="pse_table_cell">1842</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,1</td>
+                    <td class="pse_table_cell">[Xe] 4f12&nbsp;6s2</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="69" sdnum="1033;">69</td>
+                    <td class="pse_table_cell">Tm</td>
+                    <td class="pse_table_cell">Thulium</td>
+                    <td class="pse_table_cell">Thulium</td>
+                    <td class="pse_table_cell">Lanthanoid</td>
+                    <td class="pse_table_cell" sdval="168,934" sdnum="1033;">168,934</td>
+                    <td class="pse_table_cell">9,32 g/cm3</td>
+                    <td class="pse_table_cell">1818 K</td>
+                    <td class="pse_table_cell">2223 K</td>
+                    <td class="pse_table_cell">1879</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,1</td>
+                    <td class="pse_table_cell">[Xe] 4f13&nbsp;6s2</td>
+                    <td class="pse_table_cell"><br></td>
+                    <td class="pse_table_cell">3, 2</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="70" sdnum="1033;">70</td>
+                    <td class="pse_table_cell">Yb</td>
+                    <td class="pse_table_cell">Ytterbium</td>
+                    <td class="pse_table_cell">Ytterbium</td>
+                    <td class="pse_table_cell">Lanthanoid</td>
+                    <td class="pse_table_cell" sdval="173,04" sdnum="1033;">173,04</td>
+                    <td class="pse_table_cell">6,97 g/cm3</td>
+                    <td class="pse_table_cell">1097 K</td>
+                    <td class="pse_table_cell">1469 K</td>
+                    <td class="pse_table_cell">1878</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,1</td>
+                    <td class="pse_table_cell">[Xe] 4f14&nbsp;6s2</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell">, 2</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="71" sdnum="1033;">71</td>
+                    <td class="pse_table_cell">Lu</td>
+                    <td class="pse_table_cell">Lutetium</td>
+                    <td class="pse_table_cell">Lutetium</td>
+                    <td class="pse_table_cell">Lanthanoid</td>
+                    <td class="pse_table_cell" sdval="174,967" sdnum="1033;">174,967</td>
+                    <td class="pse_table_cell">9,84 g/cm3</td>
+                    <td class="pse_table_cell">1925 K</td>
+                    <td class="pse_table_cell">3675 K</td>
+                    <td class="pse_table_cell">1907</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,1</td>
+                    <td class="pse_table_cell">[Xe] 4f14&nbsp;5d1&nbsp;6s2</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="72" sdnum="1033;">72</td>
+                    <td class="pse_table_cell">Hf</td>
+                    <td class="pse_table_cell">Hafnium</td>
+                    <td class="pse_table_cell">Hafnium</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="178,49" sdnum="1033;">178,49</td>
+                    <td class="pse_table_cell">13,31 g/cm3</td>
+                    <td class="pse_table_cell">2506 K</td>
+                    <td class="pse_table_cell">4876 K</td>
+                    <td class="pse_table_cell">1923</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,3</td>
+                    <td class="pse_table_cell">[Xe] 4f14&nbsp;5d2&nbsp;6s2</td>
+                    <td class="pse_table_cell" sdval="4" sdnum="1033;">4</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="73" sdnum="1033;">73</td>
+                    <td class="pse_table_cell">Ta</td>
+                    <td class="pse_table_cell">Tantal</td>
+                    <td class="pse_table_cell">Tantalum</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="180,948" sdnum="1033;">180,948</td>
+                    <td class="pse_table_cell">16,68 g/cm3</td>
+                    <td class="pse_table_cell">3290 K</td>
+                    <td class="pse_table_cell">5731 K</td>
+                    <td class="pse_table_cell">1802</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,5</td>
+                    <td class="pse_table_cell">[Xe] 4f14&nbsp;5d3&nbsp;6s2</td>
+                    <td class="pse_table_cell" sdval="5" sdnum="1033;">5</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="74" sdnum="1033;">74</td>
+                    <td class="pse_table_cell">W</td>
+                    <td class="pse_table_cell">Wolfram</td>
+                    <td class="pse_table_cell">Tungsten</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="183,85" sdnum="1033;">183,85</td>
+                    <td class="pse_table_cell">19,26 g/cm3</td>
+                    <td class="pse_table_cell">3695 K</td>
+                    <td class="pse_table_cell">5828 K</td>
+                    <td class="pse_table_cell">1783</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,7</td>
+                    <td class="pse_table_cell">[Xe] 4f14&nbsp;5d4&nbsp;6s2</td>
+                    <td class="pse_table_cell" sdval="6" sdnum="1033;">6</td>
+                    <td class="pse_table_cell">, 5, 4, 3, 2</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="75" sdnum="1033;">75</td>
+                    <td class="pse_table_cell">Re</td>
+                    <td class="pse_table_cell">Rhenium</td>
+                    <td class="pse_table_cell">Rhenium</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="186,207" sdnum="1033;">186,207</td>
+                    <td class="pse_table_cell">21,03 g/cm3</td>
+                    <td class="pse_table_cell">3459 K</td>
+                    <td class="pse_table_cell">5869 K</td>
+                    <td class="pse_table_cell">1925</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,9</td>
+                    <td class="pse_table_cell">[Xe] 4f14&nbsp;5d5&nbsp;6s2</td>
+                    <td class="pse_table_cell" sdval="7" sdnum="1033;">7</td>
+                    <td class="pse_table_cell">, 6, 4, 2</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="76" sdnum="1033;">76</td>
+                    <td class="pse_table_cell">Os</td>
+                    <td class="pse_table_cell">Osmium</td>
+                    <td class="pse_table_cell">Osmium</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="190,2" sdnum="1033;">190,2</td>
+                    <td class="pse_table_cell">22,59 g/cm3</td>
+                    <td class="pse_table_cell">3306 K</td>
+                    <td class="pse_table_cell">5285 K</td>
+                    <td class="pse_table_cell">1803</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">2,2</td>
+                    <td class="pse_table_cell">[Xe] 4f14&nbsp;5d6&nbsp;6s2</td>
+                    <td class="pse_table_cell" sdval="4" sdnum="1033;">4</td>
+                    <td class="pse_table_cell">, 2, 3, 6, 8</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="77" sdnum="1033;">77</td>
+                    <td class="pse_table_cell">Ir</td>
+                    <td class="pse_table_cell">Iridium</td>
+                    <td class="pse_table_cell">Iridium</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="192,22" sdnum="1033;">192,22</td>
+                    <td class="pse_table_cell">22,56 g/cm3</td>
+                    <td class="pse_table_cell">2736 K</td>
+                    <td class="pse_table_cell">4701 K</td>
+                    <td class="pse_table_cell">1803</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">2,2</td>
+                    <td class="pse_table_cell">[Xe] 4f14&nbsp;5d7&nbsp;6s2</td>
+                    <td class="pse_table_cell" sdval="4" sdnum="1033;">4</td>
+                    <td class="pse_table_cell">, 2, 3, 6</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="78" sdnum="1033;">78</td>
+                    <td class="pse_table_cell">Pt</td>
+                    <td class="pse_table_cell">Platin</td>
+                    <td class="pse_table_cell">Platinum</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="195,08" sdnum="1033;">195,08</td>
+                    <td class="pse_table_cell">21,45 g/cm3</td>
+                    <td class="pse_table_cell">2041,4 K</td>
+                    <td class="pse_table_cell">4098 K</td>
+                    <td class="pse_table_cell">1557</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">2,2</td>
+                    <td class="pse_table_cell">[Xe] 4f14&nbsp;5d9&nbsp;6s1</td>
+                    <td class="pse_table_cell" sdval="4" sdnum="1033;">4</td>
+                    <td class="pse_table_cell">, 2</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="79" sdnum="1033;">79</td>
+                    <td class="pse_table_cell">Au</td>
+                    <td class="pse_table_cell">Gold</td>
+                    <td class="pse_table_cell">Gold</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="196,967" sdnum="1033;">196,967</td>
+                    <td class="pse_table_cell">19,32 g/cm3</td>
+                    <td class="pse_table_cell">1337,33 K</td>
+                    <td class="pse_table_cell">3129 K</td>
+                    <td class="pse_table_cell">seit Altertum bekannt</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">2,4</td>
+                    <td class="pse_table_cell">[Xe] 4f14&nbsp;5d10&nbsp;6s1</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell">, 1</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="80" sdnum="1033;">80</td>
+                    <td class="pse_table_cell">Hg</td>
+                    <td class="pse_table_cell">Quecksilber</td>
+                    <td class="pse_table_cell">Mercury</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="200,59" sdnum="1033;">200,59</td>
+                    <td class="pse_table_cell">13,55 g/cm3</td>
+                    <td class="pse_table_cell">234,32 K</td>
+                    <td class="pse_table_cell">629,88 K</td>
+                    <td class="pse_table_cell">seit Altertum bekannt</td>
+                    <td class="pse_table_cell">Fl&uuml;ssigkeit</td>
+                    <td class="pse_table_cell">1,9</td>
+                    <td class="pse_table_cell">[Xe] 4f14&nbsp;5d10&nbsp;6s2</td>
+                    <td class="pse_table_cell" sdval="2" sdnum="1033;">2</td>
+                    <td class="pse_table_cell">, 1</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="81" sdnum="1033;">81</td>
+                    <td class="pse_table_cell">Tl</td>
+                    <td class="pse_table_cell">Thallium</td>
+                    <td class="pse_table_cell">Thallium</td>
+                    <td class="pse_table_cell">Metall</td>
+                    <td class="pse_table_cell" sdval="204,383" sdnum="1033;">204,383</td>
+                    <td class="pse_table_cell">11,85 g/cm3</td>
+                    <td class="pse_table_cell">577 K</td>
+                    <td class="pse_table_cell">1746 K</td>
+                    <td class="pse_table_cell">1861</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,8</td>
+                    <td class="pse_table_cell">[Xe] 4f14&nbsp;5d10&nbsp;6s2&nbsp;6p1</td>
+                    <td class="pse_table_cell" sdval="1" sdnum="1033;">1</td>
+                    <td class="pse_table_cell">, 3</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="82" sdnum="1033;">82</td>
+                    <td class="pse_table_cell">Pb</td>
+                    <td class="pse_table_cell">Blei</td>
+                    <td class="pse_table_cell">Lead</td>
+                    <td class="pse_table_cell">Metall</td>
+                    <td class="pse_table_cell" sdval="207,2" sdnum="1033;">207,2</td>
+                    <td class="pse_table_cell">11,34 g/cm3</td>
+                    <td class="pse_table_cell">600,61 K</td>
+                    <td class="pse_table_cell">2022 K</td>
+                    <td class="pse_table_cell">seit Altertum bekannt</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,8</td>
+                    <td class="pse_table_cell">[Xe] 4f14&nbsp;5d10&nbsp;6s2&nbsp;6p2</td>
+                    <td class="pse_table_cell" sdval="2" sdnum="1033;">2</td>
+                    <td class="pse_table_cell">, 4</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="83" sdnum="1033;">83</td>
+                    <td class="pse_table_cell">Bi</td>
+                    <td class="pse_table_cell">Wismut</td>
+                    <td class="pse_table_cell">Bismuth</td>
+                    <td class="pse_table_cell">Metall</td>
+                    <td class="pse_table_cell" sdval="208,98" sdnum="1033;">208,98</td>
+                    <td class="pse_table_cell">9,8 g/cm3</td>
+                    <td class="pse_table_cell">544,7 K</td>
+                    <td class="pse_table_cell">1837 K</td>
+                    <td class="pse_table_cell">1540</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,9</td>
+                    <td class="pse_table_cell">[Xe] 4f14&nbsp;5d10&nbsp;6s2&nbsp;6p3</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell">, 5</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="84" sdnum="1033;">84</td>
+                    <td class="pse_table_cell">Po</td>
+                    <td class="pse_table_cell">Polonium</td>
+                    <td class="pse_table_cell">Polonium</td>
+                    <td class="pse_table_cell">Halbmetall</td>
+                    <td class="pse_table_cell" sdval="209" sdnum="1033;">209</td>
+                    <td class="pse_table_cell">9,2 g/cm3</td>
+                    <td class="pse_table_cell">527 K</td>
+                    <td class="pse_table_cell">1235 K</td>
+                    <td class="pse_table_cell">1898</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">2</td>
+                    <td class="pse_table_cell">[Xe] 4f14&nbsp;5d10&nbsp;6s2&nbsp;6p4</td>
+                    <td class="pse_table_cell" sdval="4" sdnum="1033;">4</td>
+                    <td class="pse_table_cell">, 2, 6</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="85" sdnum="1033;">85</td>
+                    <td class="pse_table_cell">At</td>
+                    <td class="pse_table_cell">Astat</td>
+                    <td class="pse_table_cell">Astatine</td>
+                    <td class="pse_table_cell">Halogen</td>
+                    <td class="pse_table_cell" sdval="210" sdnum="1033;">210</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">575 K</td>
+                    <td class="pse_table_cell">610 K</td>
+                    <td class="pse_table_cell">1940</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">2,2</td>
+                    <td class="pse_table_cell">[Xe] 4f14&nbsp;5d10&nbsp;6s2&nbsp;6p5</td>
+                    <td class="pse_table_cell" sdval="1" sdnum="1033;">1</td>
+                    <td class="pse_table_cell">, 3, 5, 7</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="86" sdnum="1033;">86</td>
+                    <td class="pse_table_cell">Rn</td>
+                    <td class="pse_table_cell">Radon</td>
+                    <td class="pse_table_cell">Radon</td>
+                    <td class="pse_table_cell">Edelgas</td>
+                    <td class="pse_table_cell" sdval="222" sdnum="1033;">222</td>
+                    <td class="pse_table_cell">0,00923 g/cm3</td>
+                    <td class="pse_table_cell">202 K</td>
+                    <td class="pse_table_cell">211,3 K</td>
+                    <td class="pse_table_cell">1900</td>
+                    <td class="pse_table_cell">Gasf&ouml;rmig</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">[Xe] 4f14&nbsp;5d10&nbsp;6s2&nbsp;6p6</td>
+                    <td class="pse_table_cell" sdval="0" sdnum="1033;">0</td>
+                    <td class="pse_table_cell">, 2</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="87" sdnum="1033;">87</td>
+                    <td class="pse_table_cell">Fr</td>
+                    <td class="pse_table_cell">Francium</td>
+                    <td class="pse_table_cell">Francium</td>
+                    <td class="pse_table_cell">Alkalimetall</td>
+                    <td class="pse_table_cell" sdval="223" sdnum="1033;">223</td>
+                    <td class="pse_table_cell">1,87 g/cm3</td>
+                    <td class="pse_table_cell">300 K</td>
+                    <td class="pse_table_cell">950 K</td>
+                    <td class="pse_table_cell">1939</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">0,7</td>
+                    <td class="pse_table_cell">[Rn] 7s1</td>
+                    <td class="pse_table_cell" sdval="1" sdnum="1033;">1</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="88" sdnum="1033;">88</td>
+                    <td class="pse_table_cell">Ra</td>
+                    <td class="pse_table_cell">Radium</td>
+                    <td class="pse_table_cell">Radium</td>
+                    <td class="pse_table_cell">Erdalkalimetall</td>
+                    <td class="pse_table_cell" sdval="226,025" sdnum="1033;">226,025</td>
+                    <td class="pse_table_cell">5,5 g/cm3</td>
+                    <td class="pse_table_cell">973 K</td>
+                    <td class="pse_table_cell">2010 K</td>
+                    <td class="pse_table_cell">1898</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">0,9</td>
+                    <td class="pse_table_cell">[Rn] 7s2</td>
+                    <td class="pse_table_cell" sdval="2" sdnum="1033;">2</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="89" sdnum="1033;">89</td>
+                    <td class="pse_table_cell">Ac</td>
+                    <td class="pse_table_cell">Actinium</td>
+                    <td class="pse_table_cell">Actinium</td>
+                    <td class="pse_table_cell">Actinoid</td>
+                    <td class="pse_table_cell" sdval="227" sdnum="1033;">227</td>
+                    <td class="pse_table_cell">10,07 g/cm3</td>
+                    <td class="pse_table_cell">1323 K</td>
+                    <td class="pse_table_cell">3471 K</td>
+                    <td class="pse_table_cell">1899</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,1</td>
+                    <td class="pse_table_cell">[Rn] 6d1&nbsp;7s2</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="90" sdnum="1033;">90</td>
+                    <td class="pse_table_cell">Th</td>
+                    <td class="pse_table_cell">Thorium</td>
+                    <td class="pse_table_cell">Thorium</td>
+                    <td class="pse_table_cell">Actinoid</td>
+                    <td class="pse_table_cell" sdval="232,038" sdnum="1033;">232,038</td>
+                    <td class="pse_table_cell">11,72 g/cm3</td>
+                    <td class="pse_table_cell">2115 K</td>
+                    <td class="pse_table_cell">5061 K</td>
+                    <td class="pse_table_cell">1829</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,3</td>
+                    <td class="pse_table_cell">[Rn] 6d2&nbsp;7s2</td>
+                    <td class="pse_table_cell" sdval="4" sdnum="1033;">4</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="91" sdnum="1033;">91</td>
+                    <td class="pse_table_cell">Pa</td>
+                    <td class="pse_table_cell">Protactinium</td>
+                    <td class="pse_table_cell">Protactinium</td>
+                    <td class="pse_table_cell">Actinoid</td>
+                    <td class="pse_table_cell" sdval="231,036" sdnum="1033;">231,036</td>
+                    <td class="pse_table_cell">15,37 g/cm3</td>
+                    <td class="pse_table_cell">1841 K</td>
+                    <td class="pse_table_cell">4300 K</td>
+                    <td class="pse_table_cell">1917</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,5</td>
+                    <td class="pse_table_cell">[Rn] 5f2&nbsp;6d1&nbsp;7s2</td>
+                    <td class="pse_table_cell" sdval="5" sdnum="1033;">5</td>
+                    <td class="pse_table_cell">, 4</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="92" sdnum="1033;">92</td>
+                    <td class="pse_table_cell">U</td>
+                    <td class="pse_table_cell">Uran</td>
+                    <td class="pse_table_cell">Uranium</td>
+                    <td class="pse_table_cell">Actinoid</td>
+                    <td class="pse_table_cell" sdval="238,029" sdnum="1033;">238,029</td>
+                    <td class="pse_table_cell">18,97 g/cm3</td>
+                    <td class="pse_table_cell">1405,3 K</td>
+                    <td class="pse_table_cell">4404 K</td>
+                    <td class="pse_table_cell">1789</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,7</td>
+                    <td class="pse_table_cell">[Rn] 5f3&nbsp;6d1&nbsp;7s2</td>
+                    <td class="pse_table_cell" sdval="6" sdnum="1033;">6</td>
+                    <td class="pse_table_cell">, 5, 4, 3</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="93" sdnum="1033;">93</td>
+                    <td class="pse_table_cell">Np</td>
+                    <td class="pse_table_cell">Neptunium</td>
+                    <td class="pse_table_cell">Neptunium</td>
+                    <td class="pse_table_cell">Actinoid</td>
+                    <td class="pse_table_cell" sdval="237,048" sdnum="1033;">237,048</td>
+                    <td class="pse_table_cell">20,48 g/cm3</td>
+                    <td class="pse_table_cell">910 K</td>
+                    <td class="pse_table_cell">4273 K</td>
+                    <td class="pse_table_cell">1940</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,3</td>
+                    <td class="pse_table_cell">[Rn] 5f4&nbsp;6d1&nbsp;7s2</td>
+                    <td class="pse_table_cell" sdval="5" sdnum="1033;">5</td>
+                    <td class="pse_table_cell">, 6, 4, 3</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="94" sdnum="1033;">94</td>
+                    <td class="pse_table_cell">Pu</td>
+                    <td class="pse_table_cell">Plutonium</td>
+                    <td class="pse_table_cell">Plutonium</td>
+                    <td class="pse_table_cell">Actinoid</td>
+                    <td class="pse_table_cell" sdval="244" sdnum="1033;">244</td>
+                    <td class="pse_table_cell">19,74 g/cm3</td>
+                    <td class="pse_table_cell">912,5 K</td>
+                    <td class="pse_table_cell">3505 K</td>
+                    <td class="pse_table_cell">1940</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,3</td>
+                    <td class="pse_table_cell">[Rn] 5f6&nbsp;7s2</td>
+                    <td class="pse_table_cell" sdval="4" sdnum="1033;">4</td>
+                    <td class="pse_table_cell">, 6, 5, 3</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="95" sdnum="1033;">95</td>
+                    <td class="pse_table_cell">Am</td>
+                    <td class="pse_table_cell">Americium</td>
+                    <td class="pse_table_cell">Americium</td>
+                    <td class="pse_table_cell">Actinoid</td>
+                    <td class="pse_table_cell" sdval="243" sdnum="1033;">243</td>
+                    <td class="pse_table_cell">13,67 g/cm3</td>
+                    <td class="pse_table_cell">1449 K</td>
+                    <td class="pse_table_cell">2880 K</td>
+                    <td class="pse_table_cell">1944</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,3</td>
+                    <td class="pse_table_cell">[Rn] 5f7&nbsp;7s2</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell">, 6, 5, 4</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="96" sdnum="1033;">96</td>
+                    <td class="pse_table_cell">Cm</td>
+                    <td class="pse_table_cell">Curium</td>
+                    <td class="pse_table_cell">Curium</td>
+                    <td class="pse_table_cell">Actinoid</td>
+                    <td class="pse_table_cell" sdval="247" sdnum="1033;">247</td>
+                    <td class="pse_table_cell">13,51 g/cm3</td>
+                    <td class="pse_table_cell">1613 K</td>
+                    <td class="pse_table_cell">3383 K</td>
+                    <td class="pse_table_cell">1944</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,3</td>
+                    <td class="pse_table_cell">[Rn] 5f7&nbsp;6d1&nbsp;7s2</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="97" sdnum="1033;">97</td>
+                    <td class="pse_table_cell">Bk</td>
+                    <td class="pse_table_cell">Berkelium</td>
+                    <td class="pse_table_cell">Berkelium</td>
+                    <td class="pse_table_cell">Actinoid</td>
+                    <td class="pse_table_cell" sdval="247" sdnum="1033;">247</td>
+                    <td class="pse_table_cell">13,25 g/cm3</td>
+                    <td class="pse_table_cell">1259 K</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">1949</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,3</td>
+                    <td class="pse_table_cell">[Rn] 5f9&nbsp;7s2</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell">, 4</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="98" sdnum="1033;">98</td>
+                    <td class="pse_table_cell">Cf</td>
+                    <td class="pse_table_cell">Californium</td>
+                    <td class="pse_table_cell">Californium</td>
+                    <td class="pse_table_cell">Actinoid</td>
+                    <td class="pse_table_cell" sdval="251" sdnum="1033;">251</td>
+                    <td class="pse_table_cell">15,1 g/cm3</td>
+                    <td class="pse_table_cell">1173 K</td>
+                    <td class="pse_table_cell">1743 K</td>
+                    <td class="pse_table_cell">1950</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,3</td>
+                    <td class="pse_table_cell">[Rn] 5f10&nbsp;7s2</td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                    <td class="pse_table_cell"><br></td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="99" sdnum="1033;">99</td>
+                    <td class="pse_table_cell">Es</td>
+                    <td class="pse_table_cell">Einsteinium</td>
+                    <td class="pse_table_cell">Einsteinium</td>
+                    <td class="pse_table_cell">Actinoid</td>
+                    <td class="pse_table_cell" sdval="252" sdnum="1033;">252</td>
+                    <td class="pse_table_cell">8,84 g/cm3</td>
+                    <td class="pse_table_cell">1133 K</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">1952</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,3</td>
+                    <td class="pse_table_cell">[Rn] 5f11&nbsp;7s2</td>
+                    <td class="pse_table_cell"><br></td>
+                    <td class="pse_table_cell">-</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="100" sdnum="1033;">100</td>
+                    <td class="pse_table_cell">Fm</td>
+                    <td class="pse_table_cell">Fermium</td>
+                    <td class="pse_table_cell">Fermium</td>
+                    <td class="pse_table_cell">Actinoid</td>
+                    <td class="pse_table_cell" sdval="257" sdnum="1033;">257</td>
+                    <td class="pse_table_cell">13,5 g/cm3</td>
+                    <td class="pse_table_cell">1800 K</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">1952</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,3</td>
+                    <td class="pse_table_cell">[Rn] 5f12&nbsp;7s2</td>
+                    <td class="pse_table_cell"><br></td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="101" sdnum="1033;">101</td>
+                    <td class="pse_table_cell">Md</td>
+                    <td class="pse_table_cell">Mendelevium</td>
+                    <td class="pse_table_cell">Mendelevium</td>
+                    <td class="pse_table_cell">Actinoid</td>
+                    <td class="pse_table_cell" sdval="258" sdnum="1033;">258</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">1100 K</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">1955</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,3</td>
+                    <td class="pse_table_cell">[Rn] 5f13&nbsp;7s2</td>
+                    <td class="pse_table_cell"><br></td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="102" sdnum="1033;">102</td>
+                    <td class="pse_table_cell">No</td>
+                    <td class="pse_table_cell">Nobelium</td>
+                    <td class="pse_table_cell">Nobelium</td>
+                    <td class="pse_table_cell">Actinoid</td>
+                    <td class="pse_table_cell" sdval="259" sdnum="1033;">259</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">1100 K</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">1958</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">1,3</td>
+                    <td class="pse_table_cell">[Rn] 5f14&nbsp;7s2</td>
+                    <td class="pse_table_cell"><br></td>
+                    <td class="pse_table_cell">2, 3</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="103" sdnum="1033;">103</td>
+                    <td class="pse_table_cell">Lr</td>
+                    <td class="pse_table_cell">Lawrencium</td>
+                    <td class="pse_table_cell">Lawrencium</td>
+                    <td class="pse_table_cell">Actinoid</td>
+                    <td class="pse_table_cell" sdval="262" sdnum="1033;">262</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">1961</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">[Rn] 5f14&nbsp;6d1&nbsp;7s2</td>
+                    <td class="pse_table_cell"><br></td>
+                    <td class="pse_table_cell" sdval="3" sdnum="1033;">3</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="104" sdnum="1033;">104</td>
+                    <td class="pse_table_cell">Rf</td>
+                    <td class="pse_table_cell">Rutherfordium</td>
+                    <td class="pse_table_cell">Rutherfordium</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="261" sdnum="1033;">261</td>
+                    <td class="pse_table_cell">23 g/cm3</td>
+                    <td class="pse_table_cell">1100 K</td>
+                    <td class="pse_table_cell">5800 K</td>
+                    <td class="pse_table_cell">1964/69</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">[Rn] 5f14&nbsp;6d2&nbsp;7s2</td>
+                    <td class="pse_table_cell"><br></td>
+                    <td class="pse_table_cell">-</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="105" sdnum="1033;">105</td>
+                    <td class="pse_table_cell">Db</td>
+                    <td class="pse_table_cell">Dubnium</td>
+                    <td class="pse_table_cell">Dubnium</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="262" sdnum="1033;">262</td>
+                    <td class="pse_table_cell">29 g/cm3</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">1967/70</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">[Rn] 5f14&nbsp;6d3&nbsp;7s2</td>
+                    <td class="pse_table_cell"><br></td>
+                    <td class="pse_table_cell">-</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="106" sdnum="1033;">106</td>
+                    <td class="pse_table_cell">Sg</td>
+                    <td class="pse_table_cell">Seaborgium</td>
+                    <td class="pse_table_cell">Seaborgium</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="263" sdnum="1033;">263</td>
+                    <td class="pse_table_cell">35 g/cm3</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">1974</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">[Rn] 5f14&nbsp;6d4&nbsp;7s2</td>
+                    <td class="pse_table_cell"><br></td>
+                    <td class="pse_table_cell">-</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="107" sdnum="1033;">107</td>
+                    <td class="pse_table_cell">Bh</td>
+                    <td class="pse_table_cell">Bohrium</td>
+                    <td class="pse_table_cell">Bohrium</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="262" sdnum="1033;">262</td>
+                    <td class="pse_table_cell">37 g/cm3</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">1976</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">[Rn] 5f14&nbsp;6d5&nbsp;7s2</td>
+                    <td class="pse_table_cell"><br></td>
+                    <td class="pse_table_cell">-</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="108" sdnum="1033;">108</td>
+                    <td class="pse_table_cell">Hs</td>
+                    <td class="pse_table_cell">Hassium</td>
+                    <td class="pse_table_cell">Hassium</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="265" sdnum="1033;">265</td>
+                    <td class="pse_table_cell">41 g/cm3</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">1984</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">[Rn] 5f14&nbsp;6d6&nbsp;7s2</td>
+                    <td class="pse_table_cell"><br></td>
+                    <td class="pse_table_cell">-</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="109" sdnum="1033;">109</td>
+                    <td class="pse_table_cell">Mt</td>
+                    <td class="pse_table_cell">Meitnerium</td>
+                    <td class="pse_table_cell">Meitnerium</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="266" sdnum="1033;">266</td>
+                    <td class="pse_table_cell">37,4 g/cm3</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">1982</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">[Rn] 5f14&nbsp;6d7&nbsp;7s2</td>
+                    <td class="pse_table_cell"><br></td>
+                    <td class="pse_table_cell">-</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="110" sdnum="1033;">110</td>
+                    <td class="pse_table_cell">Ds</td>
+                    <td class="pse_table_cell">Darmstadtium</td>
+                    <td class="pse_table_cell">Darmstadtium</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="269" sdnum="1033;">269</td>
+                    <td class="pse_table_cell">34,8 g/cm3</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">1994</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">[Rn] 5f14&nbsp;6d9&nbsp;7s1</td>
+                    <td class="pse_table_cell"><br></td>
+                    <td class="pse_table_cell">-</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="111" sdnum="1033;">111</td>
+                    <td class="pse_table_cell">Rg</td>
+                    <td class="pse_table_cell">R&ouml;ntgenium</td>
+                    <td class="pse_table_cell">Roengtgenium</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="272" sdnum="1033;">272</td>
+                    <td class="pse_table_cell">28,7 g/cm3</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">1994</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">[Rn] 5f14&nbsp;6d10&nbsp;7s1</td>
+                    <td class="pse_table_cell"><br></td>
+                    <td class="pse_table_cell">-</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="112" sdnum="1033;">112</td>
+                    <td class="pse_table_cell">Cn</td>
+                    <td class="pse_table_cell">Copernicium</td>
+                    <td class="pse_table_cell">Copernicium</td>
+                    <td class="pse_table_cell">&Uuml;bergangsmetall</td>
+                    <td class="pse_table_cell" sdval="277" sdnum="1033;">277</td>
+                    <td class="pse_table_cell">23,7 g/cm3</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">1996</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">[Rn] 5f14&nbsp;6d10&nbsp;7s2</td>
+                    <td class="pse_table_cell"><br></td>
+                    <td class="pse_table_cell">-</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="113" sdnum="1033;">113</td>
+                    <td class="pse_table_cell">Nh</td>
+                    <td class="pse_table_cell">Nihonium</td>
+                    <td class="pse_table_cell">Nihonium</td>
+                    <td class="pse_table_cell">Metall</td>
+                    <td class="pse_table_cell" sdval="287" sdnum="1033;">287</td>
+                    <td class="pse_table_cell">18 g/cm3</td>
+                    <td class="pse_table_cell">700 K</td>
+                    <td class="pse_table_cell">1400 K</td>
+                    <td class="pse_table_cell">2006</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">[Rn] 5f14&nbsp;6d10&nbsp;7s2&nbsp;7p1</td>
+                    <td class="pse_table_cell"><br></td>
+                    <td class="pse_table_cell">-</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="114" sdnum="1033;">114</td>
+                    <td class="pse_table_cell">Fl</td>
+                    <td class="pse_table_cell">Flerovium</td>
+                    <td class="pse_table_cell">Flerovium</td>
+                    <td class="pse_table_cell">Metall</td>
+                    <td class="pse_table_cell" sdval="289" sdnum="1033;">289</td>
+                    <td class="pse_table_cell">22 g/cm3</td>
+                    <td class="pse_table_cell">340 K</td>
+                    <td class="pse_table_cell">420 K</td>
+                    <td class="pse_table_cell">1999</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">[Rn] 5f14&nbsp;6d10&nbsp;7s2&nbsp;7p2</td>
+                    <td class="pse_table_cell"><br></td>
+                    <td class="pse_table_cell">-</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="115" sdnum="1033;">115</td>
+                    <td class="pse_table_cell">Mc</td>
+                    <td class="pse_table_cell">Moscovium</td>
+                    <td class="pse_table_cell">Moscovium</td>
+                    <td class="pse_table_cell">Metall</td>
+                    <td class="pse_table_cell" sdval="288" sdnum="1033;">288</td>
+                    <td class="pse_table_cell">11 g/cm3</td>
+                    <td class="pse_table_cell">700 K</td>
+                    <td class="pse_table_cell">1400 K</td>
+                    <td class="pse_table_cell">2006</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">[Rn] 5f14&nbsp;6d10&nbsp;7s2&nbsp;7p3</td>
+                    <td class="pse_table_cell"><br></td>
+                    <td class="pse_table_cell">-</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="116" sdnum="1033;">116</td>
+                    <td class="pse_table_cell">Lv</td>
+                    <td class="pse_table_cell">Livermorium</td>
+                    <td class="pse_table_cell">Livermorium</td>
+                    <td class="pse_table_cell">Metall</td>
+                    <td class="pse_table_cell" sdval="289" sdnum="1033;">289</td>
+                    <td class="pse_table_cell">12,9 g/cm3</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">2000</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">[Rn] 5f14&nbsp;6d10&nbsp;7s2&nbsp;7p4</td>
+                    <td class="pse_table_cell"><br></td>
+                    <td class="pse_table_cell">-</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="117" sdnum="1033;">117</td>
+                    <td class="pse_table_cell">Ts</td>
+                    <td class="pse_table_cell">Tennessine</td>
+                    <td class="pse_table_cell">Tennessine</td>
+                    <td class="pse_table_cell">Halogen</td>
+                    <td class="pse_table_cell" sdval="293" sdnum="1033;">293</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">573 K</td>
+                    <td class="pse_table_cell">823 K</td>
+                    <td class="pse_table_cell">2010</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">[Rn] 5f14&nbsp;6d10&nbsp;7s2&nbsp;7p5</td>
+                    <td class="pse_table_cell"><br></td>
+                    <td class="pse_table_cell">-</td>
+                </tr>
+                <tr>
+                    <td class="pse_table_cell first_column" 20sdval="118" sdnum="1033;">118</td>
+                    <td class="pse_table_cell">Og</td>
+                    <td class="pse_table_cell">Oganesson</td>
+                    <td class="pse_table_cell">Oganesson</td>
+                    <td class="pse_table_cell">Edelgas</td>
+                    <td class="pse_table_cell" sdval="294" sdnum="1033;">294</td>
+                    <td class="pse_table_cell">13,65 g/cm3</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">350 K</td>
+                    <td class="pse_table_cell">2006</td>
+                    <td class="pse_table_cell">Festk&ouml;rper</td>
+                    <td class="pse_table_cell">-</td>
+                    <td class="pse_table_cell">[Rn] 5f14&nbsp;6d10&nbsp;7s2&nbsp;7p6</td>
+                    <td class="pse_table_cell"><br></td>
+                    <td class="pse_table_cell">-</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <br> <br>
+    <script>
+        // Darkmode oder Lightmode aus dem LocalStorage holen und in der Variablen mode abspeichern
+        var mode = window.localStorage.getItem("mode");
+    
+        // Prüfen, ob der Lightmode oder der Darkmode ausgewählt wurde und Style dementsprechend anpassen
+        if (mode == "dark_mode") {
+            // neuer Link zu css/darkmode.css im <head> erstellen
+            var mode_css = document.getElementById("mode_css");
+            mode_css.href = "css/dark_mode.css";
+            
+            // Logo im Titel ändern und Darkmode Checkbox anclicken
+            document.getElementById("img-logo").src = "grafiken/logo_darkmode.svg";
+            document.getElementById("check").checked = true;
+        }
+    </script>
+</body>
+</html>
