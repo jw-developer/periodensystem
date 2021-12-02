@@ -1,0 +1,67 @@
+/* CSS Datei für den Lightmode */
+
+/* Allgemeine Hintergrundfarbe */
+body {
+    background: #1a1a1a;
+    color: white;
+}
+
+/* Schriftfarbe auf schwarz */
+.box {
+    color: #1a1a1a;
+}
+/* Schriftfarbe auf "fast" schwarz */
+.main-title, #Ac-Lr-2-short, #La-Lu-2-short {
+    color: white;
+}
+
+/* Title */
+.title hr {
+    border-color: white;
+    background: white;
+}
+
+/* .more box anpassen */
+.more {
+    background: #1a1a1a;
+    color: white;
+    box-shadow: 8px 8px 16px white;
+}
+.more table tr td a {
+    color: #00aaff;
+}
+
+/* Beim Footer einen Border hinzufügen */
+.footer {
+    border-top: solid 0.5px white;
+}
+.dropdown-content {
+    border-bottom: solid 0.5px white;
+}
+.download_img select {
+    background-color: #1a1a1a;
+    color: white;
+    border-color: white;
+}
+.bohr-source, .link-github, .privacy a {
+    color: #00aaff;
+}
+.hr_between_img_daten {
+    border-color: white;
+}
+/* Über uns Seite */
+.timeline__event__content {
+    background: #1a1a1a;
+    box-shadow: 0 30px 60px -12px rgba(255, 255, 255, 0.25), 0 18px 36px -18px rgba(255, 255, 255, 0.3), 0 -12px 36px -8px rgba(255, 255, 255, 0.025);
+}
+.timeline p {
+    color: white;
+}
+.personen-beschreibung {
+    color: #1a1a1a;
+}
+@media screen and (max-width: 700px) {
+    .personen-beschreibung {
+        box-shadow: 4px 4px 16px white;
+    }
+}

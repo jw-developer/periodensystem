@@ -1,0 +1,34 @@
+/* CSS Datei für den Lightmode */
+
+/* Allgemeine Hintergrundfarbe */
+body {
+    background: white;
+}
+
+/* Schriftfarbe auf "fast" schwarz */
+.main-title, #Ac-Lr-2-short, #La-Lu-2-short {
+    color: #1a1a1a;
+}
+
+/* .more box anpassen */
+.more {
+    background: white;
+    color: #1a1a1a;
+    box-shadow: 8px 8px 16px #1a1a1a;
+}
+.more table tr td a {
+    color: #0022ff;
+}
+
+/* Beim Footer keinen Border */
+.footer {
+    border-top: none;
+}
+.dropdown-content {
+    border-bottom: none;
+}
+
+/* Downloads Footer Scrollbar */
+.data_table::-webkit-scrollbar, .data_table::-webkit-scrollbar-corner {
+    background: rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,147 @@
+/* Flex-Layout (Text und Bilder-Download) */
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+.wrapper .box-downloads {
+    width: 40%;
+    padding: 10px 0;
+}
+.text div {
+    text-align: justify;
+}
+.download_img {
+    text-align: center;
+    font-size: 18px;
+}
+.download_img h2 {
+    margin-top: 0;
+}
+.download_btn {
+    background-color: #0088ff;
+    color: white;
+    border: solid 2.5px #0088ff;
+    display: inline-block;
+    padding: 10px 16px;
+    transition: background-color 300ms, color 500ms;
+    text-decoration: none;
+    margin-bottom: 15px;
+}
+.download_btn:hover {
+    background-color: rgba(255, 255, 255, 0);
+    color: #0088ff;
+}
+.download_img select {
+    padding: 12px;
+    border: solid 2.5px;
+    border-color: #1a1a1a;
+    transition: border-color 300ms;
+}
+.download_img select:hover {
+    border: solid 2.5px #0088ff;
+}
+
+.bohr-source, .link-github {
+    color: #0022ff;
+}
+.bohr-source:hover, .link-github:hover {
+    color: #0088ff;
+}
+.hr_between_img_daten {
+    display: none;
+    width: 80%;
+    margin-top: 20px;
+    border-color: #1a1a1a;
+}
+
+.wrapper-daten {
+    display: flex;
+    text-align: center;
+    justify-content: space-evenly;
+    width: 90%;
+    margin: 50px 5% 40px;
+}
+
+.box-daten-download {
+    width: 30%;
+}
+.dateiendung {
+    margin: -20px 0 16px;
+}
+.box-daten-download p {
+    text-align: justify;
+}
+
+/* Daten Tabelle */
+.data_table {
+    width: 80%;
+    height: 90vh;
+    margin: 40px 10%;
+    overflow: scroll;
+    border: solid 2px #0088ff;
+}
+.first_column {
+    padding-left: 20px;
+}
+table thead tr td {
+    background: #0088ff;
+    position: sticky;
+    top: 0;
+}
+table tr td {
+    border-top: solid 1px #0088ff;
+    border-bottom: solid 1px #0088ff;
+    padding: 8px;
+
+}
+.sorttable_sorted, .sorttable_sorted_reverse,table.sortable thead td:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort) { 
+    white-space: nowrap; cursor: pointer; 
+}
+.data_table::-webkit-scrollbar, .data_table::-webkit-scrollbar-corner {
+    background: rgba(255, 255, 255, 0.1);
+}
+.data_table::-webkit-scrollbar-thumb {
+    background: #0088ff;
+    border-radius: 1em;
+}
+
+/* Media Queries
+------------------------------------------------ */
+
+/* für kleinere Displays */
+@media screen and (max-width: 1100px) {
+    #download_img_link {
+        display: block;
+        margin: 10px 0 0;
+    }
+    .box-daten-download {
+        width: 25%;
+    }
+    .download_img br {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .wrapper-daten {
+        display: block;
+        margin: inherit auto;
+    }
+    .box-daten-download {
+        margin: 10px auto;
+        width: 60%;
+    }
+    .wrapper {
+        display: block;
+    }
+    .box-downloads {
+        width: 60%;
+        margin: 5px auto;
+    }
+    .hr_between_img_daten {
+        display: block;
+    }
+}
